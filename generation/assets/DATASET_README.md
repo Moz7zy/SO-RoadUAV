@@ -42,6 +42,37 @@ distributed by the CARLA project under CC-BY (CVC/UAB). The CC BY-NC 4.0
 license applies to the SO-RoadUAV curation, annotations and packaging; it does
 not restrict the CARLA map assets themselves.
 
+## Distribution
+
+The package is published as four tar archives under `archives/`, because the
+Hub limits a Git-backed directory to 10,000 entries and `train/rgb`,
+`train/metadata` and `train/lane_polyline_projected` each contain 12,000 files:
+
+| Archive | Contents | Size |
+|---|---|---:|
+| `SO-RoadUAV-1.0-train.tar` | `train/` | 3.6 GB |
+| `SO-RoadUAV-1.0-val.tar` | `val/` | 0.5 GB |
+| `SO-RoadUAV-1.0-test.tar` | `test/` | 1.4 GB |
+| `SO-RoadUAV-1.0-test-eval.tar` | `test/road_mask_visible`, `test/lane_polyline_projected`, `test/metadata` | 0.24 GB |
+
+The archives preserve the directory layout below; extracting them into one
+directory reproduces this package exactly. `archives/SHA256SUMS` covers the
+archives, and `SHA256SUMS` covers the 74,508 files of the extracted package.
+
+`python scripts/download_dataset.py --dest dataset` downloads, checks and
+extracts the archives automatically. Manual extraction:
+
+```bash
+mkdir -p dataset
+tar -xf SO-RoadUAV-1.0-train.tar -C dataset
+tar -xf SO-RoadUAV-1.0-val.tar   -C dataset
+tar -xf SO-RoadUAV-1.0-test.tar  -C dataset
+```
+
+The top-level text files (`README.md`, `LICENSE`, `SHA256SUMS`, `manifests/`,
+the two JSON cards) are not inside the archives; download them alongside the
+archives when assembling the package by hand.
+
 ## Tasks and labels
 
 1. **Road-region segmentation** — target `road_mask_visible`, a binary PNG

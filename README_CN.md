@@ -23,7 +23,8 @@ SO-RoadUAV 是面向**低空无人机道路巡检**的 CARLA-first 基准，输�
 
 ## 数据
 
-5.5 GB 数据集包（18,624 张图像）托管在 Hugging Face：
+5.5 GB 数据集包（18,624 张图像）以 tar 归档形式托管在 Hugging Face，
+下载脚本会自动下载、校验并解压：
 
 **<https://huggingface.co/datasets/Mozzzy/SO-RoadUAV>**
 
@@ -32,8 +33,8 @@ pip install -r requirements.txt
 python scripts/download_dataset.py --dest dataset
 ```
 
-仅评测时可加 `--parts test-eval`，只下载约 230 MB（道路 mask、lane JSON、
-metadata、manifests），无需完整 5.5 GB。详见
+仅评测时可加 `--parts test-eval`，只下载约 0.3 GB（道路 mask、lane JSON、
+metadata、manifests），无需完整 5.5 GB。归档布局、分段下载与校验方式详见
 [`docs/DOWNLOAD.md`](docs/DOWNLOAD.md)。
 
 ## 仓库结构

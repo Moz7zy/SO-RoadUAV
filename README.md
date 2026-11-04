@@ -28,7 +28,8 @@ version.
 
 ## Data
 
-The 5.5 GB dataset package (18,624 images) is hosted on Hugging Face:
+The 5.5 GB dataset package (18,624 images) is hosted on Hugging Face as tar
+archives; the download script fetches, verifies and extracts them:
 
 **<https://huggingface.co/datasets/Mozzzy/SO-RoadUAV>**
 
@@ -37,9 +38,10 @@ pip install -r requirements.txt
 python scripts/download_dataset.py --dest dataset
 ```
 
-Scoring needs only the test split: `--parts test-eval` downloads ~230 MB (road
+Scoring needs only the test split: `--parts test-eval` downloads ~0.3 GB (road
 masks, lane JSON, metadata, manifests) instead of the full package. See
-[`docs/DOWNLOAD.md`](docs/DOWNLOAD.md) for partial downloads and verification.
+[`docs/DOWNLOAD.md`](docs/DOWNLOAD.md) for the archive layout, partial downloads
+and verification.
 
 ## Repository layout
 

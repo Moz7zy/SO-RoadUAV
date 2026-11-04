@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Download the SO-RoadUAV dataset package from Hugging Face.
+"""Download and extract the SO-RoadUAV dataset package from Hugging Face.
 
-The package is published at https://huggingface.co/datasets/Mozzzy/SO-RoadUAV
-and mirrors the directory layout expected by evaluation/score_predictions.py:
-manifests/, train/, val/, test/, SHA256SUMS, LICENSE, ...
+The Hub limits a Git-backed directory to 10,000 entries, so the package is
+published as tar archives under ``archives/``. This script downloads the
+archives, verifies them against ``archives/SHA256SUMS``, extracts them into the
+destination, and verifies the extracted files against the package-level
+``SHA256SUMS``.
 
 Examples
 --------
@@ -11,48 +13,55 @@ Full package (5.5 GB) into ./dataset::
 
     python scripts/download_dataset.py
 
-Test split only, enough for scoring (about 230 MB)::
+Test split only, enough for scoring (about 0.3 GB)::
 
-    python scripts/download_dataset.py --parts test-eval --verify
+    python scripts/download_dataset.py --parts test-eval
 """
 
 from __future__ import annotations
 
 import argparse
 import hashlib
+import shutil
 import sys
+import tarfile
 from pathlib import Path
 
 DEFAULT_REPO_ID = "Mozzzy/SO-RoadUAV"
 DEFAULT_DEST = "dataset"
 
-# Text artifacts that make the package self-describing and verifiable.
-TEXT_FILES = [
+# part -> (archive name, approximate size in GB)
+ARCHIVES = {
+    "train": ("SO-RoadUAV-1.0-train.tar", 3.6),
+    "val": ("SO-RoadUAV-1.0-val.tar", 0.5),
+    "test": ("SO-RoadUAV-1.0-test.tar", 1.4),
+    "test-eval": ("SO-RoadUAV-1.0-test-eval.tar", 0.24),
+}
+
+PART_ARCHIVES = {
+    "all": ["test", "val", "train"],
+    "test-eval": ["test-eval"],
+    "test": ["test"],
+    "val": ["val"],
+    "train": ["train"],
+}
+
+# Loose text artifacts: they are not inside the archives.
+TEXT_PATTERNS = [
     "SHA256SUMS",
     "LICENSE",
     "README.md",
     "README_CN.md",
     "dataset_card.json",
     "package_manifest.json",
+    "manifests/**",
+    "archives/SHA256SUMS",
 ]
-
-# Asset patterns per download part. "all" means no filtering.
-PART_PATTERNS = {
-    "all": None,
-    "test-eval": [
-        "test/lane_polyline_projected/**",
-        "test/metadata/**",
-        "test/road_mask_visible/**",
-    ],
-    "test": ["test/**"],
-    "val": ["val/**"],
-    "train": ["train/**"],
-}
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Download the SO-RoadUAV dataset package from Hugging Face.",
+        description="Download and extract the SO-RoadUAV dataset package.",
     )
     parser.add_argument(
         "--repo-id",
@@ -62,11 +71,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--dest",
         default=DEFAULT_DEST,
-        help=f"local download directory (default: {DEFAULT_DEST})",
+        help=f"local dataset directory (default: {DEFAULT_DEST})",
     )
     parser.add_argument(
         "--parts",
-        choices=sorted(PART_PATTERNS),
+        choices=sorted(PART_ARCHIVES),
         default="all",
         help="subset to download; 'test-eval' is the scoring-only subset",
     )
@@ -77,30 +86,98 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--verify",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="verify the extracted files against SHA256SUMS (default: on)",
+    )
+    parser.add_argument(
+        "--keep-archives",
         action="store_true",
-        help="verify SHA-256 checksums after downloading (streaming, no extra disk)",
+        help="keep the downloaded tar archives after a successful run",
     )
     parser.add_argument(
         "--clean-metadata",
         action="store_true",
-        help="remove the local Hugging Face download metadata after a successful run",
+        help="remove local Hugging Face download metadata after a successful run",
     )
     return parser.parse_args()
 
 
-def build_patterns(parts: str) -> list[str] | None:
-    if part_patterns := PART_PATTERNS[parts]:
-        # Manifests and the text artifacts are required to resolve samples.
-        return part_patterns + ["manifests/**"] + TEXT_FILES
-    return None
-
-
-def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
+def sha256_file(path: Path, chunk_size: int = 4 * 1024 * 1024) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
         while chunk := handle.read(chunk_size):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def read_checksums(path: Path) -> dict[str, str]:
+    checksums: dict[str, str] = {}
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        expected, relative = line.split("  ", 1)
+        checksums[relative] = expected
+    return checksums
+
+
+def download_text(dest: Path, repo_id: str, revision: str | None) -> None:
+    from huggingface_hub import snapshot_download
+
+    print("downloading manifests and text artifacts...", flush=True)
+    snapshot_download(
+        repo_id=repo_id,
+        repo_type="dataset",
+        revision=revision,
+        local_dir=str(dest),
+        allow_patterns=TEXT_PATTERNS,
+    )
+
+
+def download_archive(
+    part: str, dest: Path, repo_id: str, revision: str | None, expected: dict[str, str]
+) -> Path:
+    from huggingface_hub import hf_hub_download
+
+    name, size_gb = ARCHIVES[part]
+    relative = f"archives/{name}"
+    if relative not in expected:
+        raise SystemExit(f"error: {relative} is missing from archives/SHA256SUMS")
+
+    download_dir = dest / ".downloads"
+    print(f"downloading {name} (~{size_gb:g} GB)...", flush=True)
+    path = Path(
+        hf_hub_download(
+            repo_id=repo_id,
+            filename=relative,
+            repo_type="dataset",
+            revision=revision,
+            local_dir=str(download_dir),
+        )
+    )
+
+    print(f"  verifying archive sha256...", flush=True)
+    actual = sha256_file(path)
+    if actual != expected[relative]:
+        raise SystemExit(
+            f"error: checksum mismatch for {relative}\n"
+            f"  expected {expected[relative]}\n  actual   {actual}"
+        )
+    return path
+
+
+def extract(tar_path: Path, dest: Path) -> None:
+    print(f"  extracting {tar_path.name}...", flush=True)
+    with tarfile.open(tar_path, "r:") as tar:
+        try:
+            tar.extractall(dest, filter="data")
+        except TypeError:  # Python < 3.12
+            root = dest.resolve()
+            for member in tar.getmembers():
+                target = (dest / member.name).resolve()
+                if not str(target).startswith(str(root)):
+                    raise SystemExit(f"error: unsafe path in archive: {member.name}")
+            tar.extractall(dest)
 
 
 def verify(dest: Path, strict: bool) -> int:
@@ -109,11 +186,9 @@ def verify(dest: Path, strict: bool) -> int:
         print(f"error: {sums_path} not found; cannot verify", file=sys.stderr)
         return 1
 
+    checksums = read_checksums(sums_path)
     checked = skipped = mismatched = 0
-    for line in sums_path.read_text(encoding="utf-8").splitlines():
-        if not line.strip():
-            continue
-        expected, relative = line.split("  ", 1)
+    for relative, expected in checksums.items():
         path = dest / relative
         if not path.is_file():
             skipped += 1
@@ -146,10 +221,10 @@ def verify(dest: Path, strict: bool) -> int:
 def main() -> int:
     args = parse_args()
     dest = Path(args.dest).expanduser().resolve()
-    patterns = build_patterns(args.parts)
+    dest.mkdir(parents=True, exist_ok=True)
 
     try:
-        from huggingface_hub import snapshot_download
+        import huggingface_hub  # noqa: F401
     except ImportError:
         print(
             "error: huggingface_hub is required; install it with "
@@ -162,24 +237,26 @@ def main() -> int:
     print(f"destination: {dest}")
     print(f"parts: {args.parts}")
 
-    dest.mkdir(parents=True, exist_ok=True)
-    snapshot_download(
-        repo_id=args.repo_id,
-        repo_type="dataset",
-        revision=args.revision,
-        local_dir=str(dest),
-        allow_patterns=patterns,
-    )
+    download_text(dest, args.repo_id, args.revision)
+    expected = read_checksums(dest / "archives" / "SHA256SUMS")
 
-    status = 0
-    if args.verify:
-        status = verify(dest, strict=args.parts == "all")
+    archives: list[Path] = []
+    for part in PART_ARCHIVES[args.parts]:
+        archive = download_archive(part, dest, args.repo_id, args.revision, expected)
+        archives.append(archive)
+        extract(archive, dest)
+
+    status = verify(dest, strict=args.parts == "all") if args.verify else 0
+
+    if status == 0 and not args.keep_archives and args.verify:
+        downloads = dest / ".downloads"
+        if downloads.exists():
+            shutil.rmtree(downloads)
+            print("removed downloaded archives")
 
     if status == 0 and args.clean_metadata:
         metadata = dest / ".cache" / "huggingface"
         if metadata.exists():
-            import shutil
-
             shutil.rmtree(metadata)
             print(f"removed download metadata: {metadata}")
 

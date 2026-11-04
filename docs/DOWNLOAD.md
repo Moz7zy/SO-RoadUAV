@@ -4,65 +4,92 @@ The dataset package is hosted on Hugging Face:
 
 **<https://huggingface.co/datasets/Mozzzy/SO-RoadUAV>**
 
-It is not tracked by git. `scripts/download_dataset.py` writes it to `dataset/`
-by default, which is the path every command in this repository expects.
+Hugging Face limits a Git-backed directory to 10,000 entries. `train/rgb`,
+`train/metadata` and `train/lane_polyline_projected` each contain 12,000 files,
+so the package is published as four tar archives under `archives/`. Extracting
+them reproduces the exact package layout; every path in the manifests stays
+relative to the package root.
 
 ## Quick start
 
 ```bash
 pip install -r requirements.txt
-python scripts/download_dataset.py
+python scripts/download_dataset.py --dest dataset
 ```
 
-Full package: 74,509 files, about 5.5 GB.
+The script downloads the archives, checks each archive against
+`archives/SHA256SUMS`, extracts them into `dataset/`, and verifies the extracted
+files against the package-level `SHA256SUMS`. Full package: 74,509 files, about
+5.5 GB.
+
+## Archives
+
+| Archive | Contents | Size |
+|---|---|---:|
+| `SO-RoadUAV-1.0-train.tar` | `train/` | 3.6 GB |
+| `SO-RoadUAV-1.0-val.tar` | `val/` | 0.5 GB |
+| `SO-RoadUAV-1.0-test.tar` | `test/` | 1.4 GB |
+| `SO-RoadUAV-1.0-test-eval.tar` | `test/` masks, lane JSON and metadata | 0.24 GB |
+
+The top-level text artifacts (`README.md`, `LICENSE`, `README_CN.md`,
+`dataset_card.json`, `package_manifest.json`, `SHA256SUMS`, `manifests/`) are
+published outside the archives.
 
 ## Partial downloads
 
-| `--parts` | Contents | Size |
+| `--parts` | Archives | Size |
 |---|---|---:|
-| `all` (default) | everything | ~5.5 GB |
-| `test` | `test/` + manifests + text artifacts | ~1.5 GB |
-| `test-eval` | test masks, lane JSON, metadata, manifests | ~230 MB |
-| `val` | `val/` + manifests + text artifacts | ~0.5 GB |
-| `train` | `train/` + manifests + text artifacts | ~3.7 GB |
+| `all` (default) | test + val + train | ~5.5 GB |
+| `test` | test | ~1.4 GB |
+| `test-eval` | test-eval | ~0.3 GB |
+| `val` | val | ~0.5 GB |
+| `train` | train | ~3.6 GB |
 
 `test-eval` is enough to run the official scorer, because scoring needs the
 ground-truth masks, lane polylines and metadata, but not the RGB frames:
 
 ```bash
-python scripts/download_dataset.py --parts test-eval --verify
+python scripts/download_dataset.py --parts test-eval
 ```
 
 Downloads are resumable: re-running the same command continues where it stopped.
 
-## Verification
-
-`SHA256SUMS` covers all 74,508 payload and text files (it excludes itself):
-
-```bash
-python scripts/download_dataset.py --verify          # streaming check, no extra disk
-cd dataset && sha256sum -c SHA256SUMS                # POSIX / Git Bash
-```
-
-On Windows without `sha256sum`, use `--verify` or run the check from Git Bash.
-For a partial download, `--verify` checks the files that are present and reports
-the rest as "not downloaded"; for a full download, missing files are an error.
-
-## Using the Hugging Face CLI instead
+## Manual download
 
 ```bash
 pip install huggingface_hub
-hf download Mozzzy/SO-RoadUAV --repo-type dataset --local-dir dataset
+hf download Mozzzy/SO-RoadUAV --repo-type dataset --local-dir hf_pkg
+
+mkdir -p dataset
+tar -xf hf_pkg/archives/SO-RoadUAV-1.0-test.tar -C dataset
+tar -xf hf_pkg/archives/SO-RoadUAV-1.0-val.tar  -C dataset
+tar -xf hf_pkg/archives/SO-RoadUAV-1.0-train.tar -C dataset
+
+cp -r hf_pkg/manifests hf_pkg/SHA256SUMS hf_pkg/LICENSE hf_pkg/README.md \
+      hf_pkg/README_CN.md hf_pkg/dataset_card.json hf_pkg/package_manifest.json dataset/
 ```
 
-Scoring-only subset:
+## Verification
+
+Two levels of checksums are published:
+
+| File | Covers |
+|---|---|
+| `archives/SHA256SUMS` | the four tar archives |
+| `SHA256SUMS` | the 74,508 files of the extracted package (it excludes itself) |
 
 ```bash
-hf download Mozzzy/SO-RoadUAV --repo-type dataset --local-dir dataset \
-    --include "test/lane_polyline_projected/*" "test/metadata/*" \
-              "test/road_mask_visible/*" "manifests/*" "SHA256SUMS" \
-              "LICENSE" "README.md" "dataset_card.json" "package_manifest.json"
+# archives
+cd hf_pkg/archives && sha256sum -c SHA256SUMS
+
+# extracted package (POSIX / Git Bash)
+cd dataset && sha256sum -c SHA256SUMS
 ```
+
+`download_dataset.py` performs both checks automatically. For a partial
+download, it checks the files that are present and reports the rest as "not
+downloaded"; for a full download, missing files are an error. On Windows without
+`sha256sum`, use the script or run the check from Git Bash.
 
 ## Expected layout
 
@@ -85,11 +112,12 @@ dataset/
 
 `huggingface_hub` keeps resumable-download metadata under `dataset/.cache/`.
 It is ignored by git; pass `--clean-metadata` to remove it after a successful
-full download.
+run.
 
 ## Offline and mirrored copies
 
-The package is a plain directory tree, so it can be mirrored with `rsync`,
-`rclone` or `git clone` from the Hugging Face repository. Every path in the
-manifests is relative to the package root, so a mirrored copy works as-is as
-long as the layout above is preserved.
+The extracted package is a plain directory tree, so it can be mirrored with
+`rsync`, `rclone` or a normal file copy. Every path in the manifests is relative
+to the package root, so a mirrored copy works as-is as long as the layout above
+is preserved. Keep the archives if you want a single-file backup of the
+original bytes.

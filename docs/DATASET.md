@@ -68,8 +68,11 @@ Each sample appears exactly once. The view manifests are logical indexes over
 the same `test/` assets and contain no duplicated images.
 
 **Distribution.** The package is hosted on Hugging Face
-(`Mozzzy/SO-RoadUAV`). In the Git repository, `dataset/` is a download target
-and is not tracked; see [`DOWNLOAD.md`](DOWNLOAD.md).
+(`Mozzzy/SO-RoadUAV`) as four tar archives under `archives/`, because the Hub
+limits a Git-backed directory to 10,000 entries. In the Git repository,
+`dataset/` is a download target and is not tracked;
+`scripts/download_dataset.py` downloads, checks and extracts the archives. See
+[`DOWNLOAD.md`](DOWNLOAD.md).
 
 **Never build the dataset by scanning directories.** The manifests carry sample
 identity, subset routing and slice membership.
