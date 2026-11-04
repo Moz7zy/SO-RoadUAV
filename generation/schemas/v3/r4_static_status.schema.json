@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_static_status.schema.json",
+  "title": "benchmark_v3 R4 static status 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "run_id", "stage", "status", "planned", "completed", "reused", "failed", "pilot_evidence", "canonical_dataset", "registry_write", "split_write"],
+  "properties": {"schema_version": {"const": "benchmark_v3_r4_static_status_0.1"}, "run_id": {"type": "string"}, "stage": {"const": "p1_corrective_static"}, "status": {"const": "static_ready_waiting_explicit_r4_corrective_carla_approval"}, "planned": {"const": 24}, "completed": {"const": 0}, "reused": {"const": 0}, "failed": {"const": 0}, "carla_connection": {"const": "not_used"}, "image_generation": {"const": "not_run"}, "pilot_evidence": {"const": true}, "canonical_dataset": {"const": false}, "registry_write": {"const": false}, "split_write": {"const": false}, "old_p1": {"const": "immutable_not_mutated"}, "p0": {"const": "closed_not_mutated"}, "rc": {"const": "not_entered"}, "full": {"const": "not_entered"}}
+}

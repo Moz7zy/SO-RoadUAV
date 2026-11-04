@@ -1,0 +1,787 @@
+{
+  "anchors": [
+    {
+      "anchor_id": "anchor_00caa1a1a7078f05",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_0408b45ef713df65",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_06164c7d34e4129c",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_0704249231dc9cce",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_0d1cac4ff6607fe7",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_0e1bc91a1aab7f86",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_0e1de66a9626df6f",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_10b297bc6ba22abb",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_1145ad1627a43cff",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_11ad2a42100d29af",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_14122c78004fc023",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_17e51062f784fbf3",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_1c0ea3453aae3e55",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_1c778c2197a34796",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_1c806ab28daa524e",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_23690dec015d32d3",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_25f7aadc59b48d10",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_28b5e690a1d09414",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_297186e9f8ae9311",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_2a14c780f499b39f",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_2e141546cb09dc2b",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_31689dad20456924",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_32d10475a8c5c14e",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_346a0c24dce5269f",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_35d26183bb94224e",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_35da6e43e053efcb",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_366bd5062f952a87",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_38212ec43d46f960",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_39553f34ccdd8782",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_396ea252efcf13f8",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_40181133f2ed962e",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_46143fe518a6aadb",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_47205f30eb2140ab",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_48a3c452043d2428",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_4b077fce698b45bc",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_4df322c67730f382",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_5107dbcf7dd1692d",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_5413d51ffc668462",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_564fd111de6598f8",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_57531df0999f9b82",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_595c9483e3bca423",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_5bc919567a64a0b6",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_5dfc5d33192f1f8b",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_6359617feb2d34e8",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_65af49cb892c7724",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_66de7b7570599d6f",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_6768a8d8a82197dc",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_6b655b0b21311e42",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_6c2f691007d1337b",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_6c784ff079f039c7",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_6d05a7a3ee646f09",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_6e3b3efa522b8ab3",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_72ebccbfe4bf24b9",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_73f44b105219ce9f",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_74a296afd964bf16",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_78aa958db3f79344",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_7c68d1e5b147154d",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_7c99e3778d050efe",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_7ca0bdae2df55ca4",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_7e05913aa9d57edd",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_7efaa1591d22ed64",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_81b6e3c8be1f1540",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_822239ad87160ca4",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_8478018fd48af9c8",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_853cc8ef9e9e59f0",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_8b0b787620dcd742",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_8db7a24493c2398b",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_8e3c30f990781b86",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_8e82dbcc122f3c0f",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_8ff941ebc09cbb3f",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_9115994467e1b0ec",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_92ab36db8ef02798",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_94f0d7fdf5a93e98",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_959f9f7170476f77",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_98b2dcdad05e74c4",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_9a0982df59035308",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_9a0fccc250d5f273",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_9a2df0df447a2e77",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_9aca7b12fb06e263",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_9b5e086ccd6684a4",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_9c9f31174e23bbaa",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_a01c8ffa3ee8681b",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_a324262be4eeb1b3",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_a3dbe6b474600ea3",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_a4054a278c2abe67",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_a48478a3da4dfb6e",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_a53eec68520dedaa",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_a996e4d42fa3a83f",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_acc64e06638f620b",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_ad92c2537cd06bca",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_ada8a1251a2352ad",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_add29d554c2b7e63",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_aff0e7c852052bc9",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_b13fce731ed29b0b",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_b627b441f1b1c47b",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_b7d7b530d4874265",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_c15efce1384c73d9",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_c216b716200934d4",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_c59390ad302b05d4",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_c837c6d0fa98b3e7",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_cb36a6b44bf5fcfb",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_d070926c021dc137",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_d07bd9cb55221a4d",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_d1a327ffca1d513c",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_d2f6a713f3ed8db0",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_d454ded9cfb8e17b",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_d4723d01926e2b19",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_d95b8cdad9fa6260",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_d9b484147b4cb325",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_db7083d703f9ab84",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_dc688d0d319a9ba7",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_ddb515387587d8d1",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_ded2dfc3d1f70d10",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_dee8e2f205b411b0",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_e0b2ef641485ba86",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_e180ce6399900766",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_e5b8cf3cede1163d",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_e8fdfe9386fe12d8",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_ec1bbcbfbda14faf",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_ec8bf2b319964a7a",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_f0449ca943ad7fe7",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_f4fa4481fea03d9c",
+      "is_orig_core": false,
+      "yaw_relative_deg": -0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_f743c7bfc0b56545",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": -1
+    },
+    {
+      "anchor_id": "anchor_f887f7e07a50cf4b",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_fb03ea565a38f1ff",
+      "is_orig_core": true,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    },
+    {
+      "anchor_id": "anchor_ffa4bce8d173cd9f",
+      "is_orig_core": false,
+      "yaw_relative_deg": 0.0,
+      "yaw_sign": 1
+    }
+  ],
+  "reference_conditions": {
+    "exposure": {
+      "exposure_mode": "histogram"
+    },
+    "exposure_mode": "histogram",
+    "fixed_delta_seconds": 0.05,
+    "fov_degrees": 90.0,
+    "height_m": 20.0,
+    "image_height": 720,
+    "image_width": 1280,
+    "lane_change_phase": null,
+    "pitch_deg": -80.0,
+    "sun_altitude_deg": 75.0,
+    "sun_azimuth_relative_deg": 90.0,
+    "sun_azimuth_relative_to_road_deg": 90.0,
+    "traffic_density_vehicles_per_lane_km": 0.0,
+    "warmup_ticks": 5,
+    "weather": {
+      "cloudiness": 10,
+      "family": "dry",
+      "fog_density": 0,
+      "fog_distance_m": null,
+      "precipitation": 0,
+      "wetness": 0
+    }
+  },
+  "schema_version": "benchmark_v3_test_anchor_classification_1.0"
+}

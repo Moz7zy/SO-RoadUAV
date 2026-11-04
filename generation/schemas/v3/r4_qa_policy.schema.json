@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_qa_policy.schema.json",
+  "title": "benchmark_v3 R4 QA policy 0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "qa_policy_version", "protocol_version", "strict_geometry", "traffic_qa", "policies"],
+  "properties": {
+    "schema_version": {"const": "benchmark_v3_qa_policy_config_0.1"},
+    "qa_policy_version": {"const": "benchmark_v3_qa_policy_20260727_ramp_area_v2"},
+    "protocol_version": {"const": "V3-PLAN-20260727-R4"},
+    "strict_geometry": {"type": "object"},
+    "traffic_qa": {"type": "object"},
+    "policies": {"type": "object", "required": ["D0-strict", "D1-development-relaxed"]}
+  }
+}

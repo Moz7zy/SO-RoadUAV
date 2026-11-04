@@ -1,0 +1,36 @@
+{
+  "schema_version": "benchmark_v3_challenge_l18_rc_v2_0.1",
+  "protocol_version": "V3-PLAN-20260731-RC-V2.0",
+  "design": "L18(2^1x3^7)",
+  "status": "frozen_for_rc_v2",
+  "recipe_rule_version": "benchmark_v3_rc_v2_challenge_l18_0.1",
+  "factor_order": ["height", "pitch", "relative_yaw", "traffic_density", "weather", "illumination"],
+  "factor_level_values": {
+    "height": {"1": 20, "2": 60, "3": 100},
+    "pitch": {"1": -80, "2": -90, "3": -70},
+    "relative_yaw": {"1": 0, "2": 10, "3": 15},
+    "traffic_density": {"1": 0, "2": 20, "3": 40},
+    "weather": {"1": "dry", "2": "rain-wet", "3": "fog"},
+    "illumination": {"1": 75, "2": 15, "3": -5}
+  },
+  "rows": [
+    {"challenge_row_id":"RCV2_L18_R01","levels":{"height":1,"pitch":1,"relative_yaw":1,"traffic_density":1,"weather":1,"illumination":1}},
+    {"challenge_row_id":"RCV2_L18_R02","levels":{"height":1,"pitch":2,"relative_yaw":2,"traffic_density":2,"weather":2,"illumination":2}},
+    {"challenge_row_id":"RCV2_L18_R03","levels":{"height":1,"pitch":3,"relative_yaw":3,"traffic_density":3,"weather":3,"illumination":3}},
+    {"challenge_row_id":"RCV2_L18_R04","levels":{"height":2,"pitch":1,"relative_yaw":1,"traffic_density":2,"weather":2,"illumination":3}},
+    {"challenge_row_id":"RCV2_L18_R05","levels":{"height":2,"pitch":2,"relative_yaw":2,"traffic_density":3,"weather":3,"illumination":1}},
+    {"challenge_row_id":"RCV2_L18_R06","levels":{"height":2,"pitch":3,"relative_yaw":3,"traffic_density":1,"weather":1,"illumination":2}},
+    {"challenge_row_id":"RCV2_L18_R07","levels":{"height":3,"pitch":1,"relative_yaw":2,"traffic_density":1,"weather":3,"illumination":2}},
+    {"challenge_row_id":"RCV2_L18_R08","levels":{"height":3,"pitch":2,"relative_yaw":3,"traffic_density":2,"weather":1,"illumination":3}},
+    {"challenge_row_id":"RCV2_L18_R09","levels":{"height":3,"pitch":3,"relative_yaw":1,"traffic_density":3,"weather":2,"illumination":1}},
+    {"challenge_row_id":"RCV2_L18_R10","levels":{"height":1,"pitch":1,"relative_yaw":3,"traffic_density":3,"weather":2,"illumination":2}},
+    {"challenge_row_id":"RCV2_L18_R11","levels":{"height":1,"pitch":2,"relative_yaw":1,"traffic_density":1,"weather":3,"illumination":3}},
+    {"challenge_row_id":"RCV2_L18_R12","levels":{"height":1,"pitch":3,"relative_yaw":2,"traffic_density":2,"weather":1,"illumination":1}},
+    {"challenge_row_id":"RCV2_L18_R13","levels":{"height":2,"pitch":1,"relative_yaw":2,"traffic_density":3,"weather":1,"illumination":3}},
+    {"challenge_row_id":"RCV2_L18_R14","levels":{"height":2,"pitch":2,"relative_yaw":3,"traffic_density":1,"weather":2,"illumination":1}},
+    {"challenge_row_id":"RCV2_L18_R15","levels":{"height":2,"pitch":3,"relative_yaw":1,"traffic_density":2,"weather":3,"illumination":2}},
+    {"challenge_row_id":"RCV2_L18_R16","levels":{"height":3,"pitch":1,"relative_yaw":3,"traffic_density":2,"weather":3,"illumination":1}},
+    {"challenge_row_id":"RCV2_L18_R17","levels":{"height":3,"pitch":2,"relative_yaw":1,"traffic_density":3,"weather":1,"illumination":2}},
+    {"challenge_row_id":"RCV2_L18_R18","levels":{"height":3,"pitch":3,"relative_yaw":2,"traffic_density":1,"weather":2,"illumination":3}}
+  ]
+}

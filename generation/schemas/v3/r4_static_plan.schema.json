@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_static_plan.schema.json",
+  "title": "benchmark_v3 R4 P1 corrective static plan 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "protocol_version", "stage", "status", "selected_sites", "coverage_audit", "recipe_summary", "expected_image_count", "official_labels", "pilot_evidence", "canonical_dataset", "source_checksums", "safety", "development_sampling_audit", "projection_audit", "traffic_qa_contract"],
+  "properties": {"schema_version": {"const": "benchmark_v3_r4_p1_corrective_plan_0.1"}, "protocol_version": {"const": "V3-PLAN-20260727-R4"}, "stage": {"const": "p1_corrective_static"}, "status": {"const": "static_ready_waiting_explicit_r4_corrective_carla_approval"}, "selected_sites": {"type": "array", "minItems": 4, "maxItems": 4}, "coverage_audit": {"type": "object"}, "recipe_summary": {"type": "object"}, "expected_image_count": {"const": 24}, "official_labels": {"const": ["road_mask_visible", "lane_polyline_projected"]}, "pilot_evidence": {"const": true}, "canonical_dataset": {"const": false}, "source_checksums": {"type": "object"}, "safety": {"type": "object"}, "development_sampling_audit": {"type": "object"}, "projection_audit": {"type": "object"}, "traffic_qa_contract": {"type": "object"}}
+}

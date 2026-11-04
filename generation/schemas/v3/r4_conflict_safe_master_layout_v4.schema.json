@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_conflict_safe_master_layout_v4.schema.json",
+  "title": "benchmark_v3 R4 closure-correction conflict-safe master layout 0.4",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "protocol_version", "rule_version", "anchor_id", "map_id", "site_id", "lane_count", "master_layout_seed", "master_density", "layout_attempt", "actors", "qa", "conflict_exclusion", "master_layout_hash"],
+  "properties": {
+    "schema_version": {"const": "benchmark_v3_r4_conflict_safe_master_layout_0.4"},
+    "protocol_version": {"const": "V3-PLAN-20260727-R4"},
+    "rule_version": {"const": "benchmark_v3_r4_carla_conflict_safe_master_layout_0.4"},
+    "master_density": {"const": 40.0},
+    "layout_attempt": {"type": "integer", "minimum": 0},
+    "actors": {"type": "array", "minItems": 8},
+    "master_layout_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_execution_status.schema.json",
+  "title": "benchmark_v3 R4 corrective execution status 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "run_id", "stage", "status", "planned", "completed", "reused", "failed", "pilot_evidence", "canonical_dataset", "registry_write", "split_write"],
+  "properties": {
+    "schema_version": {"const": "benchmark_v3_r4_execution_status_0.1"}, "run_id": {"type": "string"},
+    "stage": {"const": "p1_corrective"}, "status": {"enum": ["in_progress", "complete", "complete_with_warnings", "complete_with_manual_review", "failed"]},
+    "planned": {"type": "integer", "minimum": 6, "maximum": 24}, "completed": {"type": "integer", "minimum": 0, "maximum": 24},
+    "reused": {"type": "integer", "minimum": 0, "maximum": 24}, "failed": {"type": "integer", "minimum": 0, "maximum": 24},
+    "pilot_evidence": {"const": true}, "canonical_dataset": {"const": false},
+    "registry_write": {"const": false}, "split_write": {"const": false}
+  }
+}

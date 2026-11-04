@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_execution_manifest.schema.json",
+  "title": "benchmark_v3 R4 corrective execution manifest 0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "run_id", "protocol_version", "stage", "scope",
+    "config_path", "config_sha256", "static_artifact", "source_checksums",
+    "sample_ids", "map_ids", "shard_count", "official_labels", "gpu",
+    "runtime", "lifecycle", "qa_policy_version", "command", "pilot_evidence",
+    "canonical_dataset", "registry_write", "formal_split", "p0", "rc", "full",
+    "rule_version"
+  ],
+  "properties": {
+    "schema_version": {"const": "benchmark_v3_r4_execution_manifest_0.1"},
+    "run_id": {"type": "string", "pattern": "^benchmark_v3_p1_corrective_r4_"},
+    "protocol_version": {"const": "V3-PLAN-20260727-R4"},
+    "stage": {"const": "p1_corrective"},
+    "scope": {"enum": ["corrective_4_anchors_24_rows_r4", "corrective_conflict_safe_6_rows_r4", "corrective_conflict_safe_7_rows_r4", "corrective_conflict_safe_14_rows_r4"]},
+    "config_path": {"type": "string"},
+    "config_sha256": {"$ref": "#/$defs/sha256"},
+    "static_artifact": {
+      "type": "object", "additionalProperties": false,
+      "required": ["run_id", "artifact_root", "static_manifest_sha256", "r4_plan_sha256", "expected_r4_ledger_sha256", "expected_r4_traffic_ledger_sha256", "recipe_table_sha256", "source_checksums_sha256"],
+      "properties": {
+        "run_id": {"type": "string"}, "artifact_root": {"type": "string"},
+        "static_manifest_sha256": {"$ref": "#/$defs/sha256"},
+        "r4_plan_sha256": {"$ref": "#/$defs/sha256"},
+        "expected_r4_ledger_sha256": {"$ref": "#/$defs/sha256"},
+        "expected_r4_traffic_ledger_sha256": {"$ref": "#/$defs/sha256"},
+        "recipe_table_sha256": {"$ref": "#/$defs/sha256"},
+        "source_checksums_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "source_checksums": {"type": "object", "minProperties": 1, "additionalProperties": {"$ref": "#/$defs/sha256"}},
+    "sample_ids": {"type": "array", "minItems": 6, "maxItems": 24, "uniqueItems": true, "items": {"type": "string"}},
+    "map_ids": {"type": "array", "const": ["Town04_Opt", "Town05_Opt", "Town10HD_Opt"]},
+    "shard_count": {"const": 1},
+    "official_labels": {"const": ["road_mask_visible", "lane_polyline_projected"]},
+    "gpu": {"type": "object", "required": ["graphics_adapter"], "properties": {"graphics_adapter": {"type": "integer", "minimum": 0}}},
+    "runtime": {
+      "type": "object", "additionalProperties": false,
+      "required": ["python_executable", "preflight_before_server_start", "qa_policy_path", "qa_policy_sha256"],
+      "properties": {
+        "python_executable": {"type": "string"}, "preflight_before_server_start": {"const": true},
+        "qa_policy_path": {"type": "string"}, "qa_policy_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "lifecycle": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mode", "host", "rpc_port", "traffic_manager_port", "graphics_adapter", "adopt_existing", "shutdown_policy", "worker_map_load", "one_process_group_per_map", "server_ready_timeout_seconds", "map_load_timeout_seconds_by_map"],
+      "properties": {
+        "mode": {"const": "one_new_owned_server_process_group_per_map"}, "host": {"type": "string"},
+        "rpc_port": {"type": "integer", "minimum": 1, "maximum": 65535},
+        "traffic_manager_port": {"type": "integer", "minimum": 1, "maximum": 65535},
+        "graphics_adapter": {"type": "integer", "minimum": 0}, "adopt_existing": {"const": false},
+        "shutdown_policy": {"type": "string"}, "worker_map_load": {"const": "forbidden"},
+        "one_process_group_per_map": {"const": true}, "server_ready_timeout_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "map_load_timeout_seconds_by_map": {"type": "object"}
+      }
+    },
+    "qa_policy_version": {"const": "benchmark_v3_qa_policy_20260727_ramp_area_v2"},
+    "command": {"type": "array", "items": {"type": "string"}},
+    "pilot_evidence": {"const": true}, "canonical_dataset": {"const": false},
+    "registry_write": {"const": false}, "formal_split": {"const": "not_run"},
+    "p0": {"const": "closed_not_mutated"}, "rc": {"const": "not_entered"}, "full": {"const": "not_entered"},
+    "rule_version": {"const": "benchmark_v3_r4_corrective_pilot_execution_0.1"}
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

@@ -1,0 +1,329 @@
+{
+  "challenge_axis": {
+    "axis_ids": [
+      "height",
+      "nadir_view",
+      "yaw",
+      "traffic",
+      "weather_rain",
+      "weather_fog",
+      "illumination"
+    ],
+    "height_range_m": [
+      70,
+      90
+    ],
+    "pitch_nadir_deg": -90,
+    "sun_altitude_deg": -5,
+    "traffic_range": [
+      30,
+      40
+    ],
+    "yaw_magnitude_deg": 15
+  },
+  "challenge_l18_path": "configs/challenge_l18.json",
+  "core": {
+    "bundle_size": 16,
+    "levels": {
+      "height_m": [
+        20,
+        40,
+        60,
+        80,
+        100
+      ],
+      "pitch_deg": [
+        -90,
+        -80,
+        -70
+      ],
+      "sun_altitude_deg": [
+        75,
+        15,
+        -5
+      ],
+      "traffic_density": [
+        0,
+        20,
+        40
+      ],
+      "weather_family": [
+        "dry",
+        "rain-wet",
+        "fog"
+      ],
+      "yaw_magnitude_deg": [
+        0,
+        5,
+        10,
+        15
+      ]
+    }
+  },
+  "defaults": {
+    "height_m": 20,
+    "pitch_deg": -80,
+    "sun_altitude_deg": 75,
+    "traffic_density": 0,
+    "weather_family": "dry",
+    "yaw_magnitude_deg": 0
+  },
+  "development": {
+    "capacity_rank_exponent": 2.0,
+    "lane_change_phase_range": [
+      0.25,
+      0.75
+    ],
+    "qa_tier": "D0-strict",
+    "ranges": {
+      "height_m": [
+        20,
+        100
+      ],
+      "pitch_deg": [
+        -90,
+        -70
+      ],
+      "sun_altitude_deg": [
+        -5,
+        75
+      ],
+      "yaw_relative_deg": [
+        -15,
+        15
+      ]
+    },
+    "sampling_algorithm": "development_forward_corridor_capacity_rank_stratified_0.7",
+    "traffic_assignment": "exact_per_anchor_24_zero_24_nonzero",
+    "traffic_nonzero_range": [
+      10,
+      40
+    ],
+    "weather_families": [
+      "dry",
+      "rain-wet",
+      "fog"
+    ]
+  },
+  "engineering_base_config": "configs/engineering_base.json",
+  "label_rule": {
+    "confirmed_site_ids": [
+      "site_0803344a099c25f1",
+      "site_363e71fa5b574de9",
+      "site_4004a82d078a5569",
+      "site_42c2dc4351c51fd3",
+      "site_4eab27c58cf0195f",
+      "site_5142b4f4a95cc654",
+      "site_5f8ac42cae33f9f1",
+      "site_66096c77996c6232",
+      "site_720e45c5645943ed",
+      "site_793d4c90257ba431",
+      "site_7acc6573fcda0f7e",
+      "site_82253e1592dec432",
+      "site_8ced6011363b0262",
+      "site_a0973528659b89f0",
+      "site_b2aebdeab4ed5e29",
+      "site_b66d86c653e8a8dc",
+      "site_bdb3854abb12b9dc",
+      "site_bf8bf2e1d3bd0352",
+      "site_c2d8c350679b2e1a",
+      "site_cb2c4506cbfa820c",
+      "site_dbe2ce3d351455ec",
+      "site_e558d2f114b04ff5",
+      "site_e6b99f78c27a30a7",
+      "site_f6b61965c34766e2"
+    ],
+    "default_path_multi_span_reason": "frozen OpenDRIVE world geometry has no compatible one-to-one cross-span boundary matching; the historical project-then-dedup path already yields the expected physical marking count (verified against Full.2 accepted metadata)",
+    "default_path_multi_span_sites": [
+      "site_4e0b1f2942973203",
+      "site_6698bf1e8b4686d3",
+      "site_6df1ff45db4416d4",
+      "site_a54ec8b01bc7d4b9",
+      "site_a9793466a5063113",
+      "site_e479b71d1437bc70"
+    ],
+    "rule_version": "lane_marking_physical_merge_1.0",
+    "scope": "generation_time_merge_for_user_confirmed_sites",
+    "source_adjudication": "Benchmark-V3-1.0",
+    "special_drop_site_id": "site_a0973528659b89f0",
+    "special_drop_source_ref": [
+      11,
+      0,
+      -2,
+      "right",
+      "Solid"
+    ]
+  },
+  "lifecycle": {
+    "adopt_existing": false,
+    "graphics_adapter": 6,
+    "host": "localhost",
+    "one_owned_process_group_per_map": true,
+    "rpc_port": 3110,
+    "shutdown_policy": "exact_owned_matching_process_group_only",
+    "traffic_manager_port": 8110
+  },
+  "limits": {
+    "map_load_timeout_seconds_by_map": {
+      "Town04_Opt": 180,
+      "Town05_Opt": 180,
+      "Town10HD_Opt": 240
+    },
+    "max_wall_seconds": 43200,
+    "sensor_receive_attempts": 3,
+    "sensor_timeout_seconds": 12,
+    "server_ready_timeout_seconds": 300
+  },
+  "official_labels": [
+    "road_mask_visible",
+    "lane_polyline_projected"
+  ],
+  "protocol_version": "Benchmark-V3-1.0",
+  "release_boundary": {
+    "baseline_evaluation": false,
+    "baseline_inference": false,
+    "baseline_training": false,
+    "commit": false,
+    "completion_status": "awaiting_user_review"
+  },
+  "release_id": "benchmark_v3_1_0",
+  "review": {
+    "contact_sheet_columns": 4,
+    "development_fraction_min": 0.05,
+    "rule_version": "benchmark_v3_review_1.0",
+    "thumbnail_width": 320
+  },
+  "runtime": {
+    "carla_executable": "/opt/Carla/CarlaUE4.sh",
+    "carla_python": "python3",
+    "carla_root": "/opt/Carla"
+  },
+  "schema_version": "benchmark_v3_config_1.0",
+  "seeds": {
+    "challenge_axis": 2026080804,
+    "development_train": 2026081501,
+    "development_val": 2026081502,
+    "lane_change": 2026080107,
+    "review": 2026080908,
+    "traffic_master": 2026080105,
+    "vehicle_pool": 2026080106
+  },
+  "selection": {
+    "development_recipes_per_anchor": 48,
+    "new_breakdown": {
+      "challenge_anchors_ofat": 990,
+      "core_anchors_l18_axis": 1440,
+      "development": 13584
+    },
+    "new_capture": 18624,
+    "reuse": 0,
+    "rule_version": "benchmark_v3_capture_shared_test_pool_0.1",
+    "test_recipe_union": {
+      "axis": 7,
+      "l18_additional": 17,
+      "logical_slots": 41,
+      "ofat": 15,
+      "reference": 1,
+      "unique": 40
+    },
+    "test_shared": {
+      "anchors": 126,
+      "images": 5040,
+      "sites": 53
+    },
+    "test_union": {
+      "anchors": 126,
+      "leakage_groups": 25,
+      "sites": 53
+    },
+    "train": {
+      "anchors": 250,
+      "images": 12000,
+      "sites": 131
+    },
+    "val": {
+      "anchors": 33,
+      "images": 1584,
+      "sites": 20
+    }
+  },
+  "sharding": {
+    "partition_rule": "sorted_sample_id_modulo_shard_count",
+    "sample_attempts_max": 2,
+    "shard_count": 8
+  },
+  "stage": "benchmark_v3_generation",
+  "target_images": 18624,
+  "traffic": {
+    "adjacent_actor_clearance_m": 8,
+    "collision_center_clearance_m": 3,
+    "density_unit": "vehicles_per_lane_km",
+    "formal_phase": 0.5,
+    "lane_change_fraction": 0.1,
+    "lane_change_rule_version": "benchmark_v3_full_2_scripted_static_lane_change_0.1",
+    "lateral_shift_formula": "lane_width_m*(3p^2-2p^3)",
+    "layout_rule_version": "benchmark_v3_r4_seeded_lane_jitter_master_subset_0.1",
+    "master_density": 40,
+    "missing_blueprint_policy": "fail_closed_no_fallback",
+    "near_row_rate_max": 0.35,
+    "runtime_lane_change_search_radius_m": 100,
+    "runtime_min_center_clearance_m": 5,
+    "runtime_route_search_radius_m": 20,
+    "runtime_route_search_step_m": 2,
+    "runtime_rule": "Driving_waypoint_non_junction_adjacent_lane_and_marking_permission_recheck",
+    "runtime_staged_spawn_base_height_m": 1000,
+    "runtime_staged_spawn_vertical_step_m": 10,
+    "runtime_static_proxy_deviation_record_threshold_m": 30,
+    "runtime_topology_resolution_rule_version": "benchmark_v3_full_2_anchor_lane_route_resolution_0.4",
+    "runtime_vehicle_ground_clearance_m": 0.5,
+    "same_lane_min_gap_m": 10,
+    "supported_offline_rule": "Straight_or_Curve_and_total_driving_lanes_ge_4_and_not_junction_or_ramp",
+    "unsupported_reasons": [
+      "intersection_or_ramp",
+      "fewer_than_four_total_driving_lanes",
+      "no_clear_adjacent_actor_slot",
+      "runtime_no_legal_adjacent_lane",
+      "runtime_marking_not_permitted"
+    ],
+    "valid_window_m_each_side": 100,
+    "vehicle_pool": [
+      "vehicle.audi.a2",
+      "vehicle.citroen.c3",
+      "vehicle.mini.cooper_s",
+      "vehicle.nissan.micra",
+      "vehicle.toyota.prius"
+    ],
+    "vehicle_pool_rule_version": "benchmark_v3_full_2_passenger_pool_0.1",
+    "vehicle_weights": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "yaw_offset_formula": "direction*8*sin(pi*p)"
+  },
+  "weather_representatives": {
+    "dry": {
+      "cloudiness": 10,
+      "fog_density": 0,
+      "fog_distance_m": null,
+      "precipitation": 0,
+      "wetness": 0
+    },
+    "fog": {
+      "cloudiness": 50,
+      "fog_density": 40,
+      "fog_distance_m": 20,
+      "precipitation": 0,
+      "wetness": 0
+    },
+    "rain-wet": {
+      "cloudiness": 80,
+      "fog_density": 0,
+      "fog_distance_m": null,
+      "precipitation": 60,
+      "wetness": 80
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_source_checksums.schema.json",
+  "title": "benchmark_v3 R4 source checksums 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "protocol_version", "stage", "checksums"],
+  "properties": {"schema_version": {"const": "benchmark_v3_r4_source_checksums_0.1"}, "protocol_version": {"const": "V3-PLAN-20260727-R4"}, "stage": {"const": "p1_corrective_static"}, "checksums": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}}
+}

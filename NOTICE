@@ -1,0 +1,36 @@
+# Third-party notices
+
+## CARLA map assets
+
+Files:
+
+- `generation/inputs/maps/Town04_Opt.xodr`
+- `generation/inputs/maps/Town05_Opt.xodr`
+- `generation/inputs/maps/Town10HD_Opt.xodr`
+
+These OpenDRIVE road-network files are distributed as part of the CARLA
+simulator by the Computer Vision Center (CVC), Universitat Autònoma de
+Barcelona (UAB). Per the file headers, the map geometry was authored with
+RoadRunner (VectorZero).
+
+The CARLA project states:
+
+> CARLA specific code is distributed under MIT License.
+> CARLA specific assets are distributed under CC-BY License.
+
+Source:  https://github.com/carla-simulator/carla
+License: CC-BY as published by the CARLA project
+         (https://github.com/carla-simulator/carla#licenses).
+         The upstream project does not state a CC-BY version number; this
+         repository treats the grant as CC BY 4.0
+         (https://creativecommons.org/licenses/by/4.0/legalcode).
+
+These files are NOT covered by this repository's MIT License.
+
+## Dataset renders
+
+The RGB images in the published dataset are renderings of the same CARLA map
+assets. They are redistributed under the dataset license described in
+`LICENSE-DATASET`, which keeps the CARLA map assets available under CC-BY and
+applies CC BY-NC 4.0 only to the SO-RoadUAV curation, annotations and
+packaging.

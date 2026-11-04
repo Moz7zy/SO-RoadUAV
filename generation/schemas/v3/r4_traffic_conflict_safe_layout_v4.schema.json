@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_traffic_conflict_safe_layout_v4.schema.json",
+  "title": "benchmark_v3 R4 closure-correction conflict-safe traffic layout 0.4",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "protocol_version", "rule_version", "resolution", "map_ids", "master_layout_seed", "strata_per_lane", "longitudinal_range_m", "vehicle_ground_clearance_m", "anchor_count", "conflict_exclusion", "anchors"],
+  "properties": {
+    "schema_version": {"const": "benchmark_v3_r4_conflict_safe_traffic_layout_0.4"},
+    "protocol_version": {"const": "V3-PLAN-20260727-R4"},
+    "rule_version": {"const": "benchmark_v3_r4_carla_conflict_safe_master_layout_0.4"},
+    "resolution": {"const": "carla_waypoint_conflict_exclusion_frozen_without_sensor_capture"},
+    "map_ids": {"const": ["Town04_Opt", "Town05_Opt", "Town10HD_Opt"]},
+    "strata_per_lane": {"const": 8},
+    "longitudinal_range_m": {"const": [-95.0, 95.0]},
+    "vehicle_ground_clearance_m": {"const": 0.5},
+    "anchor_count": {"type": "integer", "minimum": 1},
+    "conflict_exclusion": {
+      "type": "object",
+      "required": ["rule_version", "is_junction_hard_reject", "conflict_zone_radius_m", "topology_rule_version"],
+      "properties": {
+        "rule_version": {"const": "benchmark_v3_r4_conflict_exclusion_junction_radius_0.3"},
+        "is_junction_hard_reject": {"const": true},
+        "topology_rule_version": {"const": "benchmark_v3_r4_carla_conflict_safe_master_layout_0.4"}
+      }
+    },
+    "anchors": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": true, "required": ["anchor_id", "site_id", "map_id", "lane_count", "conflict_exclusion", "candidate_audit", "actors", "qa", "master_layout_hash"]}}
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "files": {
+    "anchor_registry.json": "437dd346ef150918b7a18e0ffe754ec0b709555f1bb2d2366ca9e6a988893162",
+    "maps/Town04_Opt.xodr": "4dddd1560ab7812b0e89cd4a523d8b6f2b93947eafb496d9eeb83cc772116c85",
+    "maps/Town05_Opt.xodr": "7edc53b0be840e177598da7a4ed9571146d7b2595ce280d154c90f92e8a48851",
+    "maps/Town10HD_Opt.xodr": "5d883b799f634030af92be1e9d79d107845540ba04338e8c60e095be1aef7be7",
+    "road_library.json": "ef2c6b2f45ecfefad8d292be3c4c994981c1711955758dff2a638b6a2f83a6e9",
+    "site_registry.json": "966622d2ad5c2e8e6767ed4a5c37b73c04ba8bf5e65e57aef785bb90ac689f57",
+    "site_structural_cells.json": "d1aca2bfb710c7e28f0f861368cbf9258892ab15eed1ac865612d5eca8f00f5c",
+    "split_decision.json": "08f122e56a59a8f007cdcd81c184015156fc3d4dc90e75e611b20182a4b438dd",
+    "test_anchor_classification.json": "56b4f66024fa7d1a0df3609f4bc0875cfed699c843d1a9a615d0c115d4fa5ffa"
+  },
+  "schema_version": "benchmark_v3_generation_inputs_1.0"
+}

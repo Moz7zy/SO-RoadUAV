@@ -1,0 +1,204 @@
+{
+  "$id": "https://benchmarkproject.local/schemas/v3/full_2_sample_metadata.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "anchor_id": {
+      "type": "string"
+    },
+    "assets": {
+      "type": "object"
+    },
+    "canonical_dataset": {
+      "const": true
+    },
+    "carla_python": {
+      "type": "string"
+    },
+    "challenge_axis_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "benchmark_v3_status": {
+      "const": "accepted"
+    },
+    "generation_runtime": {
+      "additionalProperties": false,
+      "properties": {
+        "camera": {
+          "type": "object"
+        },
+        "carla_executable": {
+          "type": "string"
+        },
+        "carla_python": {
+          "type": "string"
+        },
+        "carla_root": {
+          "type": "string"
+        },
+        "frozen_seeds": {
+          "type": "object"
+        },
+        "graphics_adapter": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "host": {
+          "const": "localhost"
+        },
+        "map_id": {
+          "type": "string"
+        },
+        "official_labels": {
+          "const": [
+            "road_mask_visible",
+            "lane_polyline_projected"
+          ]
+        },
+        "rpc_port": {
+          "const": 3110
+        },
+        "sensor_seed": {
+          "type": "integer"
+        },
+        "traffic_manager_port": {
+          "const": 8110
+        },
+        "worker_command": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "world_seed": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "carla_python",
+        "carla_root",
+        "carla_executable",
+        "host",
+        "rpc_port",
+        "traffic_manager_port",
+        "graphics_adapter",
+        "map_id",
+        "world_seed",
+        "sensor_seed",
+        "frozen_seeds",
+        "camera",
+        "official_labels",
+        "worker_command"
+      ],
+      "type": "object"
+    },
+    "generation_status": {
+      "enum": [
+        "reuse",
+        "new_capture"
+      ]
+    },
+    "labels": {
+      "additionalProperties": false,
+      "properties": {
+        "lane_polyline_projected": {
+          "type": "object"
+        },
+        "road_mask_visible": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "road_mask_visible",
+        "lane_polyline_projected"
+      ],
+      "type": "object"
+    },
+    "leakage_group_id": {
+      "type": "string"
+    },
+    "map_id": {
+      "type": "string"
+    },
+    "observation_recipe_id": {
+      "type": "string"
+    },
+    "official_labels": {
+      "const": [
+        "road_mask_visible",
+        "lane_polyline_projected"
+      ]
+    },
+    "physical_subset": {
+      "enum": [
+        "train",
+        "val",
+        "test_shared"
+      ]
+    },
+    "protocol_version": {
+      "const": "V3-PLAN-20260815-FULL.3"
+    },
+    "qa": {
+      "type": "object"
+    },
+    "sample_id": {
+      "pattern": "^v3_[0-9a-f]{16}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "benchmark_v3_sample_metadata_1.0"
+    },
+    "site_id": {
+      "type": "string"
+    },
+    "source_uri": {
+      "type": "string"
+    },
+    "structural_cell": {
+      "type": "string"
+    },
+    "traffic": {
+      "type": "object"
+    },
+    "yaw_magnitude_deg": {
+      "type": "number"
+    },
+    "yaw_sign": {
+      "enum": [
+        -1,
+        0,
+        1
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "sample_id",
+    "physical_subset",
+    "site_id",
+    "anchor_id",
+    "leakage_group_id",
+    "map_id",
+    "structural_cell",
+    "observation_recipe_id",
+    "official_labels",
+    "labels",
+    "traffic",
+    "qa",
+    "assets",
+    "generation_runtime",
+    "canonical_dataset",
+    "benchmark_v3_status",
+    "source_uri",
+    "yaw_magnitude_deg",
+    "yaw_sign",
+    "challenge_axis_id",
+    "generation_status"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_expected_ledger.schema.json",
+  "title": "benchmark_v3 R4 expected corrective ledger 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "protocol_version", "stage", "pilot_evidence", "canonical_dataset", "expected_row_count", "rows"],
+  "properties": {
+    "schema_version": {"const": "benchmark_v3_r4_expected_ledger_0.1"}, "protocol_version": {"const": "V3-PLAN-20260727-R4"}, "stage": {"const": "p1_corrective_static"}, "pilot_evidence": {"const": true}, "canonical_dataset": {"const": false}, "expected_row_count": {"const": 24},
+    "rows": {"type": "array", "minItems": 24, "maxItems": 24, "items": {"type": "object", "required": ["sample_id", "subset", "map_id", "site_id", "anchor_id", "leakage_group_id", "structural_cell", "observation_recipe_id", "recipe_family", "requested_conditions", "camera_geometry", "recipe_expected_projection", "traffic_plan", "official_labels", "generation_status", "pilot_evidence", "canonical_dataset"], "properties": {"sample_id": {"type": "string", "pattern": "^v3_[0-9a-f]{16}$"}, "subset": {"const": "corrective_pilot"}, "map_id": {"type": "string"}, "site_id": {"type": "string"}, "anchor_id": {"type": "string"}, "leakage_group_id": {"type": "string"}, "structural_cell": {"type": "string"}, "observation_recipe_id": {"type": "string", "pattern": "^recipe_"}, "recipe_family": {"type": "string"}, "requested_conditions": {"type": "object"}, "camera_geometry": {"type": "object"}, "recipe_expected_projection": {"type": "object"}, "traffic_plan": {"type": "object"}, "official_labels": {"const": ["road_mask_visible", "lane_polyline_projected"]}, "generation_status": {"const": "planned"}, "pilot_evidence": {"const": true}, "canonical_dataset": {"const": false}}}}
+  }
+}

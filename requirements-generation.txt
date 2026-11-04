@@ -1,0 +1,10 @@
+# Generation pipeline dependencies.
+# The planner and packager run offline; CARLA is only imported by the capture
+# worker and the map preparer.
+-r requirements.txt
+Pillow>=10
+jsonschema>=4
+
+# carla (the Python client) is not on PyPI. Install it from the CARLA 0.9.15
+# release, e.g. `pip install <carla>/PythonAPI/carla/dist/carla-0.9.15-*.whl`,
+# or use the interpreter bundled with the CARLA distribution.

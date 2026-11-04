@@ -1,0 +1,11 @@
+"""Image geometry and capacity constants for Benchmark-V3 evaluation."""
+
+ORIGINAL_WIDTH = 1280
+ORIGINAL_HEIGHT = 720
+ORIGINAL_SIZE = (ORIGINAL_WIDTH, ORIGINAL_HEIGHT)
+
+LANE_INSTANCE_CAPACITY = 10
+LANE_RASTER_WIDTH_RULE = "round(0.01 * hypot(image_width, image_height))"
+
+ROAD_BOUNDARY_TOLERANCE_PX = 3
+LANE_MATCH_IOU_THRESHOLD = 0.5

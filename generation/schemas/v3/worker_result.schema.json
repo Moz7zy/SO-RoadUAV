@@ -1,0 +1,80 @@
+{
+  "$id": "https://benchmarkproject.local/schemas/v3/worker_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonical_dataset": {
+      "const": false
+    },
+    "cleanup_errors": {
+      "type": "array"
+    },
+    "completed_sample_ids": {
+      "type": "array",
+      "uniqueItems": true
+    },
+    "expected_sample_ids": {
+      "type": "array",
+      "uniqueItems": true
+    },
+    "failed_sample_ids": {
+      "type": "array",
+      "uniqueItems": true
+    },
+    "map_id": {
+      "type": "string"
+    },
+    "pilot_evidence": {
+      "const": true
+    },
+    "registry_write": {
+      "const": false
+    },
+    "reused_sample_ids": {
+      "type": "array",
+      "uniqueItems": true
+    },
+    "rows": {
+      "type": "array"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "benchmark_v3_worker_result_1.0"
+    },
+    "shard_index": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "split_write": {
+      "const": false
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "worker_map_load": {
+      "const": "not_performed"
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "map_id",
+    "shard_index",
+    "expected_sample_ids",
+    "completed_sample_ids",
+    "reused_sample_ids",
+    "failed_sample_ids",
+    "rows",
+    "worker_map_load",
+    "cleanup_errors",
+    "pilot_evidence",
+    "canonical_dataset",
+    "registry_write",
+    "split_write",
+    "updated_at"
+  ],
+  "title": "benchmark_v3 R4 corrective map worker result 0.1",
+  "type": "object"
+}

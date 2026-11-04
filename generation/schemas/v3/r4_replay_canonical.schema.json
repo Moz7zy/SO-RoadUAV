@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_replay_canonical.schema.json",
+  "title": "benchmark_v3 R4 canonical replay payload 0.3",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "rule_version", "protocol_version", "master_layout_hash", "density", "actor_sort", "transform_precision", "actor_fields", "actors"],
+  "properties": {
+    "schema_version": {"const": "benchmark_v3_r4_replay_canonical_0.3"},
+    "rule_version": {"const": "benchmark_v3_r4_replay_canonical_payload_0.3"},
+    "protocol_version": {"const": "V3-PLAN-20260727-R4"},
+    "master_layout_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "density": {"type": "number", "minimum": 0},
+    "actor_sort": {"const": ["logical_lane_index", "master_ordinal", "actor_id"]},
+    "transform_precision": {"type": "object", "required": ["location_m", "rotation_deg"], "properties": {"location_m": {"const": 3}, "rotation_deg": {"const": 1}}, "additionalProperties": false},
+    "actor_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "actors": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["actor_id", "vehicle_blueprint_id", "master_ordinal", "logical_lane_index", "lane_id", "frozen_lane_id", "waypoint_road_id", "waypoint_section_id", "waypoint_s_m", "transform"], "properties": {"actor_id": {"type": "string"}, "vehicle_blueprint_id": {"type": "string"}, "master_ordinal": {"type": "integer"}, "logical_lane_index": {"type": "integer"}, "lane_id": {"type": "string"}, "frozen_lane_id": {"type": ["integer", "null"]}, "waypoint_road_id": {"type": ["integer", "null"]}, "waypoint_section_id": {"type": ["integer", "null"]}, "waypoint_s_m": {"type": ["number", "null"]}, "transform": {"type": "object"}}}}
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_recipe_table.schema.json",
+  "title": "benchmark_v3 R4 recipe table 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "protocol_version", "stage", "status", "core", "challenge", "development", "core_bundle_size", "challenge_bundle_size", "height_mapping", "recipe_table_sha256"],
+  "properties": {"schema_version": {"const": "benchmark_v3_r4_recipe_table_0.1"}, "protocol_version": {"const": "V3-PLAN-20260727-R4"}, "stage": {"const": "p1_corrective_static"}, "status": {"const": "frozen_before_corrective_execution"}, "core": {"type": "array", "minItems": 15, "maxItems": 15}, "challenge": {"type": "array", "minItems": 18, "maxItems": 18}, "development": {"type": "array", "minItems": 20, "maxItems": 20}, "core_bundle_size": {"const": 15}, "challenge_bundle_size": {"const": 18}, "height_mapping": {"const": {"level1_m": 40.0, "level2_m": 20.0, "level3_m": 100.0}}, "recipe_table_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

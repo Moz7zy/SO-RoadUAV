@@ -1,0 +1,393 @@
+{
+  "camera": {
+    "exposure_mode": "histogram",
+    "fixed_delta_seconds": 0.05,
+    "fov_degrees": 90,
+    "image_height": 720,
+    "image_width": 1280,
+    "road_reference_z_source": "frozen_anchor_pose_world_z_then_carla_waypoint_actual_z",
+    "sun_azimuth_relative_to_road_deg": 90,
+    "warmup_ticks": 5
+  },
+  "core": {
+    "bundle_size": 15,
+    "defaults": {
+      "height_m": 40,
+      "pitch_deg": -80,
+      "sun_altitude_deg": 75,
+      "traffic_density_vehicles_per_lane_km": 0,
+      "weather_family": "dry",
+      "yaw_relative_deg": 0
+    },
+    "levels": {
+      "height_m": [
+        20,
+        40,
+        60,
+        80,
+        100
+      ],
+      "pitch_deg": [
+        -90,
+        -80,
+        -70
+      ],
+      "sun_altitude_deg": [
+        75,
+        15,
+        -5
+      ],
+      "traffic_density_vehicles_per_lane_km": [
+        0,
+        20,
+        40
+      ],
+      "weather_family": [
+        "dry",
+        "rain-wet",
+        "fog"
+      ],
+      "yaw_relative_deg": [
+        0,
+        -15,
+        15
+      ]
+    },
+    "recipe_family": "core_15_condition",
+    "recipe_rule_version": "benchmark_v3_r4_core_15_condition_0.1"
+  },
+  "corrective_plan": {
+    "density_anchor_by_lane_count": {
+      "4": "anchor_3e82a6a193f68a3e",
+      "6": "anchor_10b297bc6ba22abb",
+      "8": "anchor_c837c6d0fa98b3e7"
+    },
+    "expected_image_count": 24,
+    "height_anchor_ids": [
+      "anchor_d070926c021dc137",
+      "anchor_10b297bc6ba22abb",
+      "anchor_3e82a6a193f68a3e"
+    ],
+    "pressure_anchor_ids": [
+      "anchor_d070926c021dc137",
+      "anchor_10b297bc6ba22abb",
+      "anchor_3e82a6a193f68a3e"
+    ],
+    "replacement_anchor_ids": [
+      "anchor_d070926c021dc137",
+      "anchor_3e82a6a193f68a3e"
+    ],
+    "resample_scope": {
+      "anchor_ids": [
+        "anchor_d070926c021dc137",
+        "anchor_3e82a6a193f68a3e"
+      ],
+      "mode": "ramp_complete_pairing_bundle_plus_town10_complete_pairing_bundle",
+      "ramp_rows": [
+        "height_20",
+        "height_40",
+        "height_60",
+        "height_80",
+        "height_100",
+        "pressure"
+      ],
+      "reason": "Original Ramp anchor 9a failed the nominal traffic gate at 0.690999 and its 40m strict geometry gate at 0.036788. The frozen same-cell core_test replacement d070 passes the full 256-attempt conflict-safe probe at nominal coverage 0.701139 and offline 40m Ramp projection area 0.044944. Preserve complete pairing for the affected Ramp and Town10 bundles.",
+      "town10_rows": [
+        "height_20",
+        "height_40",
+        "height_60",
+        "height_80",
+        "height_100",
+        "density20",
+        "density40",
+        "pressure"
+      ]
+    },
+    "row_count_formula": "3 height anchors x 5 heights + 3 lane-count anchors x 2 densities + 3 pressure rows"
+  },
+  "development": {
+    "algorithm_version": "benchmark_v3_r4_development_stratified_random_0.2",
+    "fixture_budgets": {
+      "development_train": 12,
+      "development_val": 8
+    },
+    "ranges": {
+      "height_m": [
+        20,
+        100
+      ],
+      "pitch_deg": [
+        -90,
+        -70
+      ],
+      "sun_altitude_deg": [
+        -5,
+        75
+      ],
+      "traffic_density_vehicles_per_lane_km": [
+        0,
+        40
+      ],
+      "weather_families": [
+        "dry",
+        "rain-wet",
+        "fog"
+      ],
+      "weather_parameters": {
+        "dry": {
+          "cloudiness": [
+            0,
+            30
+          ],
+          "fog_density": [
+            0,
+            5
+          ],
+          "fog_distance_m": null,
+          "precipitation": 0,
+          "wetness": [
+            0,
+            20
+          ]
+        },
+        "fog": {
+          "cloudiness": [
+            30,
+            80
+          ],
+          "fog_density": [
+            20,
+            60
+          ],
+          "fog_distance_m": [
+            10,
+            40
+          ],
+          "precipitation": 0,
+          "wetness": [
+            0,
+            30
+          ]
+        },
+        "rain-wet": {
+          "cloudiness": [
+            60,
+            100
+          ],
+          "fog_density": [
+            0,
+            10
+          ],
+          "fog_distance_m": null,
+          "precipitation": [
+            30,
+            80
+          ],
+          "wetness": [
+            50,
+            100
+          ]
+        }
+      },
+      "yaw_relative_deg": [
+        -15,
+        15
+      ]
+    },
+    "seeds": {
+      "development_train": 2026072721,
+      "development_val": 2026072722
+    }
+  },
+  "labels": {
+    "official_labels": [
+      "road_mask_visible",
+      "lane_polyline_projected"
+    ]
+  },
+  "lifecycle": {
+    "adopt_existing": false,
+    "graphics_adapter": 0,
+    "host": "localhost",
+    "one_owned_process_group_per_map": true,
+    "rpc_port": 3012,
+    "shutdown_policy": "exact_owned_matching_process_group_only",
+    "traffic_manager_port": 8012,
+    "worker_must_not_load_world": true
+  },
+  "limits": {
+    "map_load_timeout_seconds_by_map": {
+      "Town04_Opt": 120,
+      "Town05_Opt": 120,
+      "Town10HD_Opt": 180
+    },
+    "max_wall_seconds": 3600,
+    "sensor_receive_attempts": 3,
+    "sensor_timeout_seconds": 10,
+    "server_ready_timeout_seconds": 240
+  },
+  "protocol_version": "V3-PLAN-20260727-R4",
+  "qa": {
+    "exposure_disposition": "warn_only_triage",
+    "incomplete_bundle_disposition": "reject",
+    "intersection_reference_area_min": 0.05,
+    "non_default_geometry_policy": "recipe_frozen_projection_not_default_area_gate",
+    "policy_path": "configs/qa_policies.json",
+    "policy_version": "benchmark_v3_qa_policy_20260727_ramp_area_v2",
+    "ramp_reference_area_min": 0.04
+  },
+  "rc_height_calibration_path": "configs/height_calibration.json",
+  "recipe_freeze": {
+    "challenge_factor_order": [
+      "height",
+      "pitch",
+      "relative_yaw",
+      "traffic_density",
+      "weather",
+      "illumination"
+    ],
+    "challenge_selected_columns": [
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7"
+    ],
+    "height_mapping": {
+      "level1_m": 40,
+      "level2_m": 20,
+      "level3_m": 100
+    },
+    "seed": 2026072723,
+    "status": "frozen_before_corrective_execution"
+  },
+  "runtime": {
+    "carla_executable": "/opt/Carla/CarlaUE4.sh",
+    "carla_python": "python3",
+    "carla_root": "/opt/Carla"
+  },
+  "safety_boundaries": {
+    "canonical_dataset": false,
+    "default_dry_run": true,
+    "execute_requires_r4_corrective_confirmation": true,
+    "execute_requires_server_lifecycle_confirmation": true,
+    "no_commit": true,
+    "no_delete": true,
+    "no_full": true,
+    "no_image_generation_in_static_phase": true,
+    "no_old_p1_mutation": true,
+    "no_p0_mutation": true,
+    "no_rc": true,
+    "no_registry_write": true,
+    "no_split_write": true,
+    "no_training": true,
+    "pilot_evidence_only": true,
+    "worker_must_not_load_world": true,
+    "worker_requires_r4_corrective_confirmation": true,
+    "worker_requires_server_lifecycle_confirmation": true
+  },
+  "schema_version": "benchmark_v3_r4_p1_corrective_config_0.2",
+  "selection": {
+    "anchor_count": 4,
+    "coverage_limitations": {
+      "Challenge-Curve-2Lane": "N/A: frozen finalization has no second disjoint strict Challenge leakage group",
+      "Challenge-Straight-6Lane": "N/A: frozen finalization has no second disjoint strict Challenge leakage group",
+      "Core-Challenge-Straight-2Lane": "unavailable/N/A"
+    },
+    "distinct_leakage_group_count": 4,
+    "eligibility_mutation": "forbidden",
+    "leakage_group_split": "forbidden",
+    "site_count": 4,
+    "sites": [
+      {
+        "anchor_id": "anchor_d070926c021dc137",
+        "leakage_group_id": "leakage_f05501e20f31520e",
+        "map_id": "Town04_Opt",
+        "pilot_role": "height_sweep_and_pressure",
+        "site_id": "site_13fbf2237fcc2ede",
+        "source_subset": "core_test",
+        "structural_cell": "Ramp-1-to-Mainline-8"
+      },
+      {
+        "anchor_id": "anchor_c837c6d0fa98b3e7",
+        "leakage_group_id": "leakage_5059ec7269d7d818",
+        "map_id": "Town04_Opt",
+        "pilot_role": "density_8lane",
+        "site_id": "site_4069470c02755f19",
+        "source_subset": "challenge_test",
+        "structural_cell": "Straight-8Lane"
+      },
+      {
+        "anchor_id": "anchor_10b297bc6ba22abb",
+        "leakage_group_id": "leakage_5188a306853e2549",
+        "map_id": "Town05_Opt",
+        "pilot_role": "height_sweep_density_6lane_and_pressure",
+        "site_id": "site_5be5d71a764e814d",
+        "source_subset": "core_test",
+        "structural_cell": "Straight-6Lane"
+      },
+      {
+        "anchor_id": "anchor_3e82a6a193f68a3e",
+        "leakage_group_id": "leakage_67d03fa4bcfebaa9",
+        "map_id": "Town10HD_Opt",
+        "pilot_role": "height_sweep_density_4lane_and_pressure",
+        "site_id": "site_08da1c4b03cfd084",
+        "source_subset": "core_test",
+        "structural_cell": "Intersection-Approach-4Lane"
+      }
+    ],
+    "split_mutation": "forbidden"
+  },
+  "sharding": {
+    "partition_rule": "sorted_sample_id_modulo_shard_count",
+    "resume_levels": [
+      "sample",
+      "map",
+      "shard"
+    ],
+    "shard_count": 1
+  },
+  "source_protocol": {
+    "challenge_l18_path": "configs/challenge_l18.json",
+    "qa_policy_path": "configs/qa_policies.json",
+    "rc_height_calibration_path": "configs/height_calibration.json"
+  },
+  "stage": "p1_corrective_static",
+  "traffic": {
+    "actor_control": "fixed_transform_no_autopilot",
+    "conflict_exclusion_rule_version": "benchmark_v3_r4_conflict_exclusion_junction_radius_0.3",
+    "conflict_zone_radius_m": 10,
+    "density20_subset_rule_version": "benchmark_v3_r4_density20_spatial_balanced_subset_0.1",
+    "density_unit": "vehicles_per_lane_km",
+    "lane_width_m": 3.5,
+    "layout_rule_version": "benchmark_v3_r4_carla_conflict_safe_master_layout_0.4",
+    "layout_search_max_attempts": 256,
+    "longitudinal_range_m": [
+      -95,
+      95
+    ],
+    "master_density": 40,
+    "master_layout_seed": 2026072724,
+    "pedestrians": false,
+    "qa": {
+      "cross_lane_collision_distance_m": 2.5,
+      "cross_lane_near_row_rate_max": 0.35,
+      "cross_lane_near_row_threshold_m": 5,
+      "lane_count_balance_max_difference": 1,
+      "longitudinal_coverage_ratio_min": 0.7,
+      "same_lane_min_gap_m": 10,
+      "topology_validation": "frozen_carla_waypoint_lane_identity_and_conflict_exclusion_hard_gate"
+    },
+    "rounding_policy": "nearest_integer_half_up",
+    "sample_id_bind_master_layout_hash": true,
+    "scripted_layout": true,
+    "strata_per_lane": 8,
+    "stratum_jitter_m": 7,
+    "subset_density": 20,
+    "sumo": false,
+    "valid_window_m_each_side": 100,
+    "vehicle_blueprint_id": "vehicle.tesla.model3",
+    "vehicle_ground_clearance_m": 0.5
+  }
+}

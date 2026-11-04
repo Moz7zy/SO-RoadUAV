@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_sample_metadata.schema.json",
+  "title": "benchmark_v3 R4 corrective sample metadata 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "protocol_version", "sample_id", "subset", "map_id", "site_id", "anchor_id", "leakage_group_id", "structural_cell", "observation_recipe_id", "recipe_family", "pilot_kind", "is_reference", "requested_conditions", "camera_geometry", "actual_camera_geometry", "actual_conditions", "official_labels", "traffic", "world_state", "labels", "qa", "assets", "pilot_evidence", "canonical_dataset", "formal_split", "p0", "rc", "full"],
+  "properties": {
+    "schema_version": {"const": "benchmark_v3_r4_sample_metadata_0.1"}, "protocol_version": {"const": "V3-PLAN-20260727-R4"},
+    "sample_id": {"type": "string", "pattern": "^v3_[0-9a-f]{16}$"}, "subset": {"const": "corrective_pilot"},
+    "map_id": {"type": "string"}, "site_id": {"type": "string"}, "anchor_id": {"type": "string"}, "leakage_group_id": {"type": "string"}, "structural_cell": {"type": "string"},
+    "observation_recipe_id": {"type": "string", "pattern": "^recipe_"}, "recipe_family": {"type": "string"}, "pilot_kind": {"type": "string"}, "is_reference": {"type": "boolean"},
+    "requested_conditions": {"type": "object"}, "camera_geometry": {"type": "object"}, "actual_camera_geometry": {"type": "object"}, "actual_conditions": {"type": "object"},
+    "official_labels": {"const": ["road_mask_visible", "lane_polyline_projected"]},
+    "traffic": {"type": "object", "required": ["density_unit", "requested_density", "valid_lane_count", "valid_window_m", "lane_km", "target_actor_count", "planned_actor_count", "actual_actor_count", "master_layout_seed", "master_layout_hash", "layout_rule_version", "planned_world_state_hash", "actual_world_state_hash", "planned_actors", "actual_actors", "qa", "replay"], "properties": {"density_unit": {"const": "vehicles_per_lane_km"}, "requested_density": {"type": "number"}, "valid_lane_count": {"type": "integer"}, "valid_window_m": {"type": "number"}, "lane_km": {"type": "number"}, "target_actor_count": {"type": "integer", "minimum": 0}, "planned_actor_count": {"type": "integer", "minimum": 0}, "actual_actor_count": {"type": "integer", "minimum": 0}, "master_layout_seed": {"type": "integer"}, "master_layout_hash": {"type": "string"}, "layout_rule_version": {"type": "string"}, "planned_world_state_hash": {"type": "string"}, "actual_world_state_hash": {"type": "string"}, "planned_actors": {"type": "array"}, "actual_actors": {"type": "array"}, "qa": {"type": "object"}, "replay": {"type": "object"}}, "additionalProperties": true},
+    "world_state": {"type": "object"}, "labels": {"type": "object", "required": ["road_mask_visible", "lane_polyline_projected"], "additionalProperties": false, "properties": {"road_mask_visible": {"type": "object"}, "lane_polyline_projected": {"type": "object"}}},
+    "qa": {"type": "object", "required": ["status", "policy_version", "exposure", "strict_geometry", "official_label_keys"], "properties": {"status": {"enum": ["pass", "warn", "needs_manual_review"]}, "policy_version": {"type": "string"}, "exposure": {"type": "object"}, "strict_geometry": {"type": "object"}, "official_label_keys": {"const": ["road_mask_visible", "lane_polyline_projected"]}}},
+    "assets": {"type": "object", "required": ["rgb.jpg", "road_mask_visible.png", "road_mask_visible_overlay.jpg", "lane_polyline_projected_overlay.jpg", "metadata.json"], "additionalProperties": false, "properties": {"rgb.jpg": {"type": "object"}, "road_mask_visible.png": {"type": "object"}, "road_mask_visible_overlay.jpg": {"type": "object"}, "lane_polyline_projected_overlay.jpg": {"type": "object"}, "metadata.json": {"type": "object"}}},
+    "source_checksums": {"type": "object", "additionalProperties": {"type": "string"}},
+    "pilot_evidence": {"const": true}, "canonical_dataset": {"const": false}, "formal_split": {"const": "not_run"}, "p0": {"const": "closed_not_mutated"}, "rc": {"const": "not_entered"}, "full": {"const": "not_entered"}
+  }
+}

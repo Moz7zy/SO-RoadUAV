@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_traffic_layout.schema.json",
+  "title": "benchmark_v3 R4 traffic layout 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "protocol_version", "rule_version", "anchor_id", "lane_count", "master_layout_seed", "master_density", "actors", "qa", "master_layout_hash"],
+  "properties": {"schema_version": {"const": "benchmark_v3_r4_traffic_layout_0.1"}, "protocol_version": {"const": "V3-PLAN-20260727-R4"}, "rule_version": {"const": "benchmark_v3_r4_seeded_lane_jitter_master_subset_0.1"}, "anchor_id": {"type": "string"}, "map_id": {"type": "string"}, "site_id": {"type": "string"}, "lane_count": {"type": "integer", "minimum": 1}, "master_layout_seed": {"type": "integer"}, "master_density": {"const": 40.0}, "layout_attempt": {"type": "integer", "minimum": 0}, "actors": {"type": "array"}, "qa": {"type": "object"}, "master_layout_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

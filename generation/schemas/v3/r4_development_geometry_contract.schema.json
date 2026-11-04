@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_development_geometry_contract.schema.json",
+  "title": "benchmark_v3 R4 Development geometry contract 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "protocol_version", "stage", "algorithm_version", "seed_by_subset", "height_range_m", "rows", "materialization"],
+  "properties": {"schema_version": {"const": "benchmark_v3_r4_development_geometry_contract_0.1"}, "protocol_version": {"const": "V3-PLAN-20260727-R4"}, "stage": {"const": "p1_corrective_static"}, "algorithm_version": {"const": "benchmark_v3_r4_development_stratified_random_0.2"}, "seed_by_subset": {"type": "object"}, "height_range_m": {"const": [20.0, 100.0]}, "rows": {"type": "array", "minItems": 20}, "materialization": {"const": "recipe_and_geometry_contract_only_no_images"}}
+}

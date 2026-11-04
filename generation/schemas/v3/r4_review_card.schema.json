@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_review_card.schema.json",
+  "title": "benchmark_v3 R4 corrective review card 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "review_rule_version", "bundle_key", "map_id", "site_id", "anchor_id", "structural_cell", "rows", "asset_contract", "traffic_summary", "bundle_status", "incomplete_formal_bundle_disposition"],
+  "properties": {"schema_version": {"const": "benchmark_v3_r4_review_card_0.1"}, "review_rule_version": {"const": "benchmark_v3_r4_p1_corrective_static_artifact_0.1"}, "bundle_key": {"type": "string"}, "map_id": {"type": "string"}, "site_id": {"type": "string"}, "anchor_id": {"type": "string"}, "structural_cell": {"type": "string"}, "rows": {"type": "array", "minItems": 1}, "asset_contract": {"type": "object"}, "traffic_summary": {"type": "object"}, "bundle_status": {"const": "corrective_targeted_not_formal_core_or_challenge_bundle"}, "incomplete_formal_bundle_disposition": {"const": "not_a_pass"}}
+}

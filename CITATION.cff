@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite the associated paper and this repository."
+title: "SO-RoadUAV: A Scene-Observation Diagnostic Benchmark for UAV Traffic-Monitoring Road Perception"
+version: "1.0"
+date-released: "2026-11-04"
+type: dataset
+license: "CC-BY-NC-4.0"
+repository-code: "https://github.com/Moz7zy/SO-RoadUAV"
+url: "https://huggingface.co/datasets/Mozzzy/SO-RoadUAV"
+abstract: >-
+  SO-RoadUAV (referred to as Benchmark-V3 in the source code) is a CARLA-first
+  benchmark for road-region segmentation and target-corridor lane recovery from
+  single-frame UAV RGB images. It publishes 18,624 images with CARLA-derived
+  road masks and projected lane-marking polylines, together with the generation
+  pipeline and an official scorer.
+keywords:
+  - benchmark
+  - CARLA
+  - UAV
+  - road segmentation
+  - lane detection
+authors:
+  - family-names: "Wang"
+    given-names: "Zhaoxi"
+    affiliation: "Shenzhen Institute of Advanced Technology, Chinese Academy of Sciences; University of Chinese Academy of Sciences"
+  - family-names: "Zhao"
+    given-names: "Juanjuan"
+    affiliation: "Shenzhen Institute of Advanced Technology, Chinese Academy of Sciences; University of Chinese Academy of Sciences"
+  - family-names: "Liu"
+    given-names: "Xiaoyin"
+    affiliation: "Shenzhen Institute of Advanced Technology, Chinese Academy of Sciences; University of Chinese Academy of Sciences"
+  - family-names: "Gao"
+    given-names: "Xitong"
+    affiliation: "Shenzhen Institute of Advanced Technology, Chinese Academy of Sciences; University of Chinese Academy of Sciences"
+  - family-names: "Ye"
+    given-names: "Kejiang"
+    affiliation: "Shenzhen Institute of Advanced Technology, Chinese Academy of Sciences; University of Chinese Academy of Sciences"

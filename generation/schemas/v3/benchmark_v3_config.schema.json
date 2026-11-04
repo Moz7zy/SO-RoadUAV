@@ -1,0 +1,106 @@
+{
+  "$id": "https://benchmarkproject.local/schemas/v3/full_2_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "challenge_axis": {
+      "type": "object"
+    },
+    "challenge_l18_path": {
+      "type": "string"
+    },
+    "core": {
+      "type": "object"
+    },
+    "defaults": {
+      "type": "object"
+    },
+    "development": {
+      "type": "object"
+    },
+    "engineering_base_config": {
+      "type": "string"
+    },
+    "label_rule": {
+      "type": "object"
+    },
+    "lifecycle": {
+      "type": "object"
+    },
+    "limits": {
+      "type": "object"
+    },
+    "official_labels": {
+      "const": [
+        "road_mask_visible",
+        "lane_polyline_projected"
+      ]
+    },
+    "protocol_version": {
+      "const": "Benchmark-V3-1.0"
+    },
+    "release_boundary": {
+      "type": "object"
+    },
+    "release_id": {
+      "const": "benchmark_v3_1_0"
+    },
+    "review": {
+      "type": "object"
+    },
+    "runtime": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "benchmark_v3_config_1.0"
+    },
+    "seeds": {
+      "type": "object"
+    },
+    "selection": {
+      "type": "object"
+    },
+    "sharding": {
+      "type": "object"
+    },
+    "stage": {
+      "const": "benchmark_v3_generation"
+    },
+    "target_images": {
+      "const": 18624
+    },
+    "traffic": {
+      "type": "object"
+    },
+    "weather_representatives": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "stage",
+    "release_id",
+    "target_images",
+    "engineering_base_config",
+    "challenge_l18_path",
+    "selection",
+    "seeds",
+    "defaults",
+    "weather_representatives",
+    "core",
+    "challenge_axis",
+    "traffic",
+    "review",
+    "official_labels",
+    "lifecycle",
+    "sharding",
+    "limits",
+    "runtime",
+    "release_boundary",
+    "development",
+    "label_rule"
+  ],
+  "title": "Benchmark-V3 generation config",
+  "type": "object"
+}

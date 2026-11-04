@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_p1_corrective_config_correction.schema.json",
+  "title": "benchmark_v3 R4 P1 closure correction config 0.2",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "protocol_version", "stage", "source_finalization", "source_p0_closure", "source_protocol", "core", "development", "recipe_freeze", "selection", "corrective_plan", "camera", "traffic", "qa", "runtime", "lifecycle", "limits", "sharding", "output", "labels", "safety_boundaries"],
+  "properties": {
+    "schema_version": {"const": "benchmark_v3_r4_p1_corrective_config_0.2"},
+    "protocol_version": {"const": "V3-PLAN-20260727-R4"},
+    "stage": {"const": "p1_corrective_static"},
+    "core": {"type": "object", "required": ["bundle_size", "defaults", "levels"]},
+    "development": {"type": "object", "required": ["seeds", "ranges"]},
+    "recipe_freeze": {"type": "object", "required": ["height_mapping"]},
+    "selection": {"type": "object", "required": ["site_count", "anchor_count", "distinct_leakage_group_count", "sites", "coverage_limitations", "split_mutation", "eligibility_mutation", "leakage_group_split"]},
+    "corrective_plan": {"type": "object", "required": ["height_anchor_ids", "density_anchor_by_lane_count", "pressure_anchor_ids", "expected_image_count", "row_count_formula", "replacement_anchor_ids", "resample_scope"]},
+    "traffic": {"type": "object", "required": ["density20_subset_rule_version", "layout_search_max_attempts", "qa"]},
+    "labels": {"const": {"official_labels": ["road_mask_visible", "lane_polyline_projected"]}},
+    "safety_boundaries": {"type": "object"}
+  }
+}

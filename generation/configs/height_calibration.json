@@ -1,0 +1,47 @@
+{
+  "schema_version": "benchmark_v3_r4_rc_height_calibration_0.1",
+  "protocol_version": "V3-PLAN-20260727-R4",
+  "stage": "rc_height_calibration",
+  "status": "pre_registered_pending_rc_training_and_execution",
+  "candidate_heights_m": [20.0, 40.0, 60.0, 80.0, 100.0],
+  "baseline": {
+    "baseline_id": "v3_rc_height_baseline_pending_v1",
+    "architecture": "to_be_frozen_before_rc_training",
+    "checkpoint_path": null,
+    "checkpoint_sha256": null,
+    "training_seed": 2026072704,
+    "evaluation_seed": 2026072705,
+    "status": "not_trained_in_static_phase"
+  },
+  "metrics": {
+    "primary": "macro_mean_of_road_iou_visible_and_lane_f1_projected",
+    "road_metric": "road_iou_visible",
+    "lane_metric": "lane_f1_projected",
+    "aggregation": "site_macro_then_height_macro",
+    "confidence_interval": "paired_bootstrap_by_site_seed_2026072706",
+    "minimum_site_count_per_height": 3
+  },
+  "site_macro_results": [
+    {"map_id": "Town04_Opt", "structural_cell": "Ramp-1-to-Mainline-8", "site_id": "site_ea01835bb5bedde9", "status": "pending_rc", "height_metrics": []},
+    {"map_id": "Town05_Opt", "structural_cell": "Straight-6Lane", "site_id": "site_5be5d71a764e814d", "status": "pending_rc", "height_metrics": []},
+    {"map_id": "Town10HD_Opt", "structural_cell": "Intersection-Approach-4Lane", "site_id": "site_08da1c4b03cfd084", "status": "pending_rc", "height_metrics": []}
+  ],
+  "selection_rule": {
+    "candidate_pool": "RC-Core only",
+    "exclude": ["RC-Challenge", "Full test labels", "training_or_validation_images"],
+    "score": "macro_mean_of_primary_metric_by_site",
+    "tie_break": "choose_40m_then_lower_height",
+    "required_complete_height_bundles": true,
+    "required_all_candidate_heights": true,
+    "h_star_written_before_full_ledger": true,
+    "h_star_initial_value": null
+  },
+  "safety": {
+    "training_run": "not_run",
+    "baseline_checkpoint_frozen": false,
+    "carla_connection": "not_used",
+    "canonical_dataset": false,
+    "rc": "not_entered",
+    "full": "not_entered"
+  }
+}

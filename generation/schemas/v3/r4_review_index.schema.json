@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_review_index.schema.json",
+  "title": "benchmark_v3 R4 corrective review index 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "review_rule_version", "run_id", "pilot_evidence", "canonical_dataset", "bundle_count", "bundles", "official_labels"],
+  "properties": {"schema_version": {"const": "benchmark_v3_r4_review_index_0.1"}, "review_rule_version": {"const": "benchmark_v3_r4_p1_corrective_static_artifact_0.1"}, "run_id": {"type": "string"}, "pilot_evidence": {"const": true}, "canonical_dataset": {"const": false}, "bundle_count": {"const": 4}, "bundles": {"type": "array", "minItems": 4, "maxItems": 4}, "official_labels": {"const": ["road_mask_visible", "lane_polyline_projected"]}}
+}

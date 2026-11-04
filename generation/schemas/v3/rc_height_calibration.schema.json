@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/rc_height_calibration.schema.json",
+  "title": "benchmark_v3 R4 RC height calibration 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "protocol_version", "stage", "status", "candidate_heights_m", "baseline", "metrics", "site_macro_results", "selection_rule", "safety"],
+  "properties": {"schema_version": {"const": "benchmark_v3_r4_rc_height_calibration_0.1"}, "protocol_version": {"const": "V3-PLAN-20260727-R4"}, "stage": {"const": "rc_height_calibration"}, "status": {"const": "pre_registered_pending_rc_training_and_execution"}, "candidate_heights_m": {"const": [20.0, 40.0, 60.0, 80.0, 100.0]}, "baseline": {"type": "object"}, "metrics": {"type": "object"}, "site_macro_results": {"type": "array", "minItems": 3}, "selection_rule": {"type": "object"}, "safety": {"type": "object"}}
+}

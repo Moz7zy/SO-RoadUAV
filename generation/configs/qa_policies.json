@@ -1,0 +1,65 @@
+{
+  "schema_version": "benchmark_v3_qa_policy_config_0.1",
+  "qa_policy_version": "benchmark_v3_qa_policy_20260727_ramp_area_v2",
+  "protocol_version": "V3-PLAN-20260727-R4",
+  "strict_geometry": {
+    "default_area_threshold": 0.05,
+    "development_area_threshold": 0.03,
+    "structural_cell_area_thresholds": {"Ramp-1-to-Mainline-8": 0.04},
+    "boundary_length_diagonal_threshold": 0.15,
+    "reference_condition": {
+      "height_m": 40.0,
+      "pitch_deg": -80.0,
+      "yaw_relative_deg": 0.0,
+      "fov_degrees": 90.0,
+      "image_width": 1280,
+      "image_height": 720,
+      "weather": "dry",
+      "traffic": "empty",
+      "exposure_mode": "histogram"
+    },
+    "non_default_recipe_policy": "validate_actual_projection_against_frozen_recipe_expectation_and_retain_complete_bundle"
+  },
+  "traffic_qa": {
+    "same_lane_min_gap_m": 10.0,
+    "longitudinal_coverage_ratio_min": 0.70,
+    "lane_count_balance_max_difference": 1,
+    "cross_lane_near_row_threshold_m": 5.0,
+    "cross_lane_near_row_rate_max": 0.35,
+    "spawn_collision": "hard_gate_at_carla_execution",
+    "replay_hash": "must_match_frozen_master_and_subset_hash"
+  },
+  "policies": {
+    "D0-strict": {
+      "allowed_subsets": ["development_train", "development_val", "core_test", "challenge_test", "corrective_pilot"],
+      "requires_capacity_audit": false,
+      "requires_versioned_decision": false,
+      "hard_gates": [
+        "rgb_semantic_metadata_tick_synchronized",
+        "road_mask_visible_exists_nonempty_and_uses_ids_1_24",
+        "lane_polyline_projected_has_valid_deduplicated_instances",
+        "opendrive_site_anchor_recipe_seed_provenance_complete",
+        "road_reference_z_relative_height_camera_world_z_recorded",
+        "recipe_specific_projection_matches_frozen_expectation",
+        "target_corridor_polygon_valid",
+        "junction_or_merge_conflict_centered_rejected",
+        "leakage_group_does_not_cross_subset",
+        "systematic_generator_errors_require_code_fix"
+      ],
+      "soft_thresholds": {
+        "target_corridor_area_ratio_min": 0.05,
+        "main_boundary_length_diagonal_ratio_min": 0.15,
+        "roadlines_explained_recall_min": 0.75,
+        "solid_semantic_support_min": 0.80,
+        "broken_semantic_support_min": 0.30
+      }
+    },
+    "D1-development-relaxed": {
+      "allowed_subsets": ["development_train", "development_val"],
+      "requires_capacity_audit": true,
+      "requires_versioned_decision": true,
+      "hard_gates": ["rgb_semantic_metadata_tick_synchronized", "road_mask_visible_exists_nonempty_and_uses_ids_1_24", "lane_polyline_projected_has_valid_deduplicated_instances", "road_reference_z_relative_height_camera_world_z_recorded"],
+      "soft_thresholds": {"target_corridor_area_ratio_min": 0.03, "main_boundary_length_diagonal_ratio_min": 0.10, "roadlines_explained_recall_min": 0.60, "solid_semantic_support_min": 0.60, "broken_semantic_support_min": 0.20}
+    }
+  }
+}

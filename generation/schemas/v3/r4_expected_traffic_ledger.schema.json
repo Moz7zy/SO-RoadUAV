@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_expected_traffic_ledger.schema.json",
+  "title": "benchmark_v3 R4 expected traffic ledger 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "protocol_version", "stage", "density_unit", "master_layouts", "expected_row_count", "rows"],
+  "properties": {"schema_version": {"const": "benchmark_v3_r4_expected_traffic_ledger_0.1"}, "protocol_version": {"const": "V3-PLAN-20260727-R4"}, "stage": {"const": "p1_corrective_static"}, "density_unit": {"const": "vehicles_per_lane_km"}, "master_layouts": {"type": "array", "minItems": 4}, "expected_row_count": {"const": 24}, "rows": {"type": "array", "minItems": 24, "maxItems": 24, "items": {"type": "object", "required": ["sample_id", "requested_density", "lane_km", "target_actor_count", "planned_actor_count", "actors", "qa", "master_layout_hash", "planned_world_state_hash", "replay_hash"], "properties": {"sample_id": {"type": "string"}, "requested_density": {"type": "number", "minimum": 0}, "lane_km": {"type": "number", "exclusiveMinimum": 0}, "target_actor_count": {"type": "integer", "minimum": 0}, "planned_actor_count": {"type": "integer", "minimum": 0}, "actors": {"type": "array"}, "qa": {"type": "object"}, "master_layout_hash": {"type": "string"}, "planned_world_state_hash": {"type": "string"}, "replay_hash": {"type": "string"}}}}}
+}

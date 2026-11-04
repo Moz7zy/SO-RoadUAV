@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_protocol_decision.schema.json",
+  "title": "benchmark_v3 R4 protocol decision 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "protocol_version", "stage", "decision_status", "historical_p1", "primary_finalization", "safety", "source_checksums"],
+  "properties": {"schema_version": {"const": "benchmark_v3_r4_protocol_decision_0.1"}, "protocol_version": {"const": "V3-PLAN-20260727-R4"}, "stage": {"const": "p1_corrective_static"}, "decision_status": {"const": "frozen_for_r4_corrective_static_preparation"}, "historical_p1": {"type": "object"}, "primary_finalization": {"type": "object"}, "challenge_coverage_limitations": {"type": "object"}, "safety": {"type": "object"}, "source_checksums": {"type": "object"}}
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchmarkproject.local/schemas/v3/r4_static_manifest.schema.json",
+  "title": "benchmark_v3 R4 static manifest 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "run_id", "protocol_version", "stage", "artifact_kind", "config_path", "config_sha256", "source_checksums", "immutable_files", "sample_ids", "map_ids", "expected_image_count", "official_labels", "pilot_evidence", "canonical_dataset", "carla_connection", "image_generation", "registry_write", "split_write", "rc", "full"],
+  "properties": {"schema_version": {"const": "benchmark_v3_r4_static_manifest_0.1"}, "run_id": {"pattern": "^benchmark_v3_p1_corrective_static_"}, "protocol_version": {"const": "V3-PLAN-20260727-R4"}, "stage": {"const": "p1_corrective_static"}, "artifact_kind": {"const": "static"}, "config_path": {"type": "string"}, "config_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "source_checksums": {"type": "object"}, "immutable_files": {"type": "object"}, "sample_ids": {"type": "array", "minItems": 24, "maxItems": 24, "uniqueItems": true}, "map_ids": {"type": "array", "const": ["Town04_Opt", "Town05_Opt", "Town10HD_Opt"]}, "expected_image_count": {"const": 24}, "official_labels": {"const": ["road_mask_visible", "lane_polyline_projected"]}, "status": {"type": "string"}, "pilot_evidence": {"const": true}, "canonical_dataset": {"const": false}, "carla_connection": {"const": "not_used"}, "image_generation": {"const": "not_run"}, "registry_write": {"const": false}, "split_write": {"const": false}, "old_p1": {"const": "immutable_not_mutated"}, "p0": {"const": "closed_not_mutated"}, "rc": {"const": "not_entered"}, "full": {"const": "not_entered"}}
+}
