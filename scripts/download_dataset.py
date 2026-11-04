@@ -141,8 +141,8 @@ def download_archive(
 
     name, size_gb = ARCHIVES[part]
     relative = f"archives/{name}"
-    if relative not in expected:
-        raise SystemExit(f"error: {relative} is missing from archives/SHA256SUMS")
+    if name not in expected:
+        raise SystemExit(f"error: {name} is missing from archives/SHA256SUMS")
 
     download_dir = dest / ".downloads"
     print(f"downloading {name} (~{size_gb:g} GB)...", flush=True)
@@ -158,10 +158,10 @@ def download_archive(
 
     print(f"  verifying archive sha256...", flush=True)
     actual = sha256_file(path)
-    if actual != expected[relative]:
+    if actual != expected[name]:
         raise SystemExit(
             f"error: checksum mismatch for {relative}\n"
-            f"  expected {expected[relative]}\n  actual   {actual}"
+            f"  expected {expected[name]}\n  actual   {actual}"
         )
     return path
 
