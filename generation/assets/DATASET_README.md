@@ -25,7 +25,7 @@ public serialisation of the frozen `Benchmark-V3-1.0` release.
 
 Status: `released`.
 
-- Code: <https://github.com/Moz7zy/SO-RoadUAV>
+- Code: <https://github.com/air-ground-traffic-lab/SO-RoadUAV>
 - Data: <https://huggingface.co/datasets/Mozzzy/SO-RoadUAV>
 
 **Naming.** The benchmark is referred to as *Benchmark V3* (and `benchmark_v3` in

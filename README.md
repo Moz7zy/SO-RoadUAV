@@ -119,7 +119,7 @@ this benchmark.
 The dataset is publicly available at
 <https://huggingface.co/datasets/Mozzzy/SO-RoadUAV> under CC BY-NC 4.0. The
 generation pipeline and official scorer are released at
-<https://github.com/Moz7zy/SO-RoadUAV> under the MIT License.
+<https://github.com/air-ground-traffic-lab/SO-RoadUAV> under the MIT License.
 
 ## License and citation
 

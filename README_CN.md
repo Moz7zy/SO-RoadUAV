@@ -109,7 +109,7 @@ CondLaneNet-R18、CLRNet-R18）所需的适配。
 
 数据集公开托管于 <https://huggingface.co/datasets/Mozzzy/SO-RoadUAV>，采用
 CC BY-NC 4.0。生成管线与官方评分器发布于
-<https://github.com/Moz7zy/SO-RoadUAV>，采用 MIT 许可证。
+<https://github.com/air-ground-traffic-lab/SO-RoadUAV>，采用 MIT 许可证。
 
 ## 许可与引用
 
